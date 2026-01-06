@@ -150,7 +150,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                     exitPrice: formData.exitPrice ? parseFloat(formData.exitPrice) : null,
                     stopLoss: formData.stopLoss ? parseFloat(formData.stopLoss) : null,
                     takeProfit: formData.takeProfit ? parseFloat(formData.takeProfit) : null,
-                    volume: parseFloat(formData.volume || 0),
+                    volume: parseFloat(String(formData.volume || 0)),
                     riskPercent: parseFloat(formData.riskPercent),
                     setupQuality: parseInt(formData.setupQuality)
                 })

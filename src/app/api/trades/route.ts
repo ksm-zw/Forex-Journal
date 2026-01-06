@@ -12,14 +12,23 @@ try {
 }
 
 function loadDemoTrades() {
-  try {
-    const dataPath = path.join(process.cwd(), 'data', 'demo-trades.json');
-    const raw = readFileSync(dataPath, 'utf-8');
-    return JSON.parse(raw);
-  } catch (e) {
-    console.error('Failed to load demo trades file', e);
-    return [];
+  const possible = [
+    path.join(process.cwd(), 'data', 'demo-trades.json'),
+    path.join(process.cwd(), 'src', 'data', 'demo-trades.json'),
+    path.join(process.cwd(), 'public', 'data', 'demo-trades.json'),
+  ];
+
+  for (const p of possible) {
+    try {
+      const raw = readFileSync(p, 'utf-8');
+      return JSON.parse(raw);
+    } catch (e) {
+      // try next
+    }
   }
+
+  console.error('Failed to load demo trades file from known locations');
+  return [];
 }
 
 export async function GET(request: NextRequest) {
@@ -118,7 +127,7 @@ export async function POST(request: NextRequest) {
         setupQuality: body.setupQuality ? parseInt(body.setupQuality) : null,
         whatLearned: body.whatLearned,
         mistakes: body.mistakes ? JSON.stringify(body.mistakes) : null,
-      },
+      } as any,
       include: {
         screenshots: true,
         voiceNotes: true,

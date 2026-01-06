@@ -6,6 +6,7 @@ import { useTheme } from '@/context/ThemeContext';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
 import { FiPlus, FiX } from 'react-icons/fi';
+import AnimatedCard from '@/components/AnimatedCard';
 
 interface DailyGoal {
   date: string;
@@ -72,7 +73,7 @@ export default function PlanningPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Daily Goals Section */}
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Today's Goals</h2>
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">{today}</p>
 
@@ -131,12 +132,12 @@ export default function PlanningPage() {
             >
               Save Daily Goals
             </button>
-          </div>
+          </AnimatedCard>
 
           {/* Planning Section */}
           <div className="space-y-6">
             {/* Weekly Focus */}
-            <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+            <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Weekly Focus Area</h2>
               <select
                 value={weeklyFocus}
@@ -154,10 +155,8 @@ export default function PlanningPage() {
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 Choose one area to focus on this week
               </p>
-            </div>
-
-            {/* Pre-Market */}
-            <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+            </AnimatedCard>
+            <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Pre-Market Preparation</h2>
               <textarea
                 value={preMarketNotes}
@@ -165,10 +164,10 @@ export default function PlanningPage() {
                 placeholder="Economic events, key levels, pairs to watch..."
                 className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 outline-none resize-none h-24"
               />
-            </div>
+            </AnimatedCard>
 
             {/* Post-Session */}
-            <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+            <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Post-Session Review Prompts</h2>
               <ul className="space-y-2 text-xs text-gray-600 dark:text-gray-400">
                 <li>✓ Did you hit your daily goal?</li>
@@ -183,7 +182,7 @@ export default function PlanningPage() {
                 placeholder="Your reflections..."
                 className="w-full mt-4 px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 outline-none resize-none h-24"
               />
-            </div>
+            </AnimatedCard>
           </div>
         </div>
       </main>

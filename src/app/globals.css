@@ -201,3 +201,26 @@ select:focus {
   animation: pulse-glow 2s infinite;
 }
 
+/* Trader background / subtle animated gradient */
+.trader-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(ellipse at center, rgba(139,92,246,0.04), transparent 25%), linear-gradient(120deg, rgba(10,10,11,0.85), rgba(20,18,20,0.9));
+  opacity: 0.95;
+}
+
+.trader-lines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(135deg, rgba(139,92,246,0.03) 0 2px, transparent 2px 24px);
+  animation: drift 18s linear infinite;
+  mix-blend-mode: overlay;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 400px 400px; }
+}
+

@@ -61,27 +61,30 @@ export async function GET(request: NextRequest) {
         'Notes',
       ];
 
-      const csvRows = trades.map((trade) => [
-        trade.entryTime.toISOString().split('T')[0],
-        trade.pair,
-        trade.direction,
-        trade.entryPrice,
-        trade.exitPrice || '',
-        trade.stopLoss || '',
-        trade.takeProfit || '',
-        trade.volume,
-        trade.outcome || 'OPEN',
-        trade.profitLoss || '',
-        trade.profitLossPercent || '',
-        trade.riskPercent || '',
-        trade.riskRewardRatio || '',
-        trade.account || '',
-        trade.broker || '',
-        trade.strategy || '',
-        trade.emotionalState || '',
-        trade.setupQuality || '',
-        (trade.notes || '').replace(/"/g, '""'),
-      ]);
+      const csvRows = trades.map((trade) => {
+        const t: any = trade;
+        return [
+          t.entryTime.toISOString().split('T')[0],
+          t.pair,
+          t.direction,
+          t.entryPrice,
+          t.exitPrice || '',
+          t.stopLoss || '',
+          t.takeProfit || '',
+          t.volume,
+          t.outcome || 'OPEN',
+          t.profitLoss || '',
+          t.profitLossPercent || '',
+          t.riskPercent || '',
+          t.riskRewardRatio || '',
+          t.account || '',
+          t.broker || '',
+          t.strategy || '',
+          t.emotionalState || '',
+          t.setupQuality || '',
+          (t.notes || '').replace(/"/g, '""'),
+        ];
+      });
 
       const csv = [
         csvHeaders.map((h) => `"${h}"`).join(','),

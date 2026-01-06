@@ -1,0 +1,6 @@
+[
+  { "pair": "EUR/USD", "date": "2025-12-20T09:30:00Z", "pnl": 125.5, "direction": "LONG", "entryPrice": 1.080, "quantity": 1 },
+  { "pair": "GBP/USD", "date": "2025-12-22T14:20:00Z", "pnl": -45.25, "direction": "SHORT", "entryPrice": 1.267, "quantity": 1 },
+  { "pair": "USD/JPY", "date": "2026-01-02T10:15:00Z", "pnl": 78.0, "direction": "LONG", "entryPrice": 109.45, "quantity": 1 },
+  { "pair": "AUD/USD", "date": "2026-01-03T11:00:00Z", "pnl": -12.75, "direction": "SHORT", "entryPrice": 0.672, "quantity": 1 }
+]

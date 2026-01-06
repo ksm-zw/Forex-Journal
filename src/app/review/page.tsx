@@ -7,6 +7,7 @@ import ScreenshotUploader from '@/components/ScreenshotUploader';
 import { useTheme } from '@/context/ThemeContext';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
+import AnimatedCard from '@/components/AnimatedCard';
 
 export default function TradeReviewPage() {
   const { theme, toggleTheme } = useTheme();
@@ -126,7 +127,7 @@ export default function TradeReviewPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Trades List */}
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Trades</h2>
             <div className="space-y-2 max-h-96 overflow-y-auto">
               {trades.length > 0 ? (
@@ -160,13 +161,13 @@ export default function TradeReviewPage() {
                 </p>
               )}
             </div>
-          </div>
+            </AnimatedCard>
 
           {/* Review Form */}
           {selectedTrade ? (
             <div className="lg:col-span-2 space-y-6">
               {/* Trade Summary */}
-              <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+              <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
                   {selectedTrade.pair} - {selectedTrade.direction}
                 </h2>
@@ -196,10 +197,10 @@ export default function TradeReviewPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </AnimatedCard>
 
               {/* Review Fields */}
-              <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+              <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Review Details</h3>
 
                 {/* What I Learned */}
@@ -276,7 +277,7 @@ export default function TradeReviewPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </AnimatedCard>
 
               <button
                 onClick={saveReview}
@@ -286,17 +287,17 @@ export default function TradeReviewPage() {
               </button>
             </div>
           ) : (
-            <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-lg p-12 text-center border border-gray-200 dark:border-slate-700">
+            <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-12 text-center border border-gray-200 dark:border-slate-700">
               <p className="text-gray-600 dark:text-gray-400">Select a trade to review</p>
-            </div>
+            </AnimatedCard>
           )}
         </div>
 
         {/* Media Uploads */}
         {selectedTrade && (
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <VoiceRecorder />
-            <ScreenshotUploader />
+            <AnimatedCard className="p-6"><VoiceRecorder /></AnimatedCard>
+            <AnimatedCard className="p-6"><ScreenshotUploader /></AnimatedCard>
           </div>
         )}
       </main>

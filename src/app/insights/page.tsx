@@ -5,6 +5,7 @@ import DashboardHeader from '@/components/DashboardHeader';
 import { useTheme } from '@/context/ThemeContext';
 import { Toaster } from 'react-hot-toast';
 import { FiTrendingUp, FiAlertCircle, FiTarget, FiZap } from 'react-icons/fi';
+import AnimatedCard from '@/components/AnimatedCard';
 
 interface Trade {
   id: string;
@@ -219,7 +220,7 @@ export default function InsightsPage() {
                 : 'bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-700';
 
               return (
-                <div key={idx} className={`${bgColor} border rounded-lg p-6`}>
+                <AnimatedCard key={idx} className={`${bgColor} border p-6`}>
                   <div className="flex items-start gap-4">
                     <div className={`p-3 rounded-lg ${insight.color} bg-white dark:bg-slate-800`}>
                       <Icon className="w-6 h-6" />
@@ -233,20 +234,20 @@ export default function InsightsPage() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </AnimatedCard>
               );
             })}
           </div>
         ) : (
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-12 text-center border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="bg-white dark:bg-slate-800 p-12 text-center border border-gray-200 dark:border-slate-700">
             <p className="text-gray-600 dark:text-gray-400 mb-2">Add more trades to get AI-powered insights</p>
             <p className="text-sm text-gray-500 dark:text-gray-500">The more data you have, the better insights we can provide</p>
-          </div>
+          </AnimatedCard>
         )}
 
         {/* Weekly Summary */}
         {trades.length > 0 && (
-          <div className="mt-8 bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="mt-8 bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">This Week's Summary</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -288,7 +289,7 @@ export default function InsightsPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </AnimatedCard>
         )}
       </main>
 

@@ -2245,6 +2245,33 @@ input:focus, textarea:focus, select:focus {
   animation: 2s infinite pulse-glow;
 }
 
+.trader-background {
+  z-index: -1;
+  pointer-events: none;
+  opacity: .95;
+  background-image: radial-gradient(#8b5cf60a, #0000 25%), linear-gradient(120deg, #0a0a0bd9, #141214e6);
+  position: fixed;
+  inset: 0;
+}
+
+.trader-lines {
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(135deg, #8b5cf608 0 2px, #0000 2px 24px);
+  animation: 18s linear infinite drift;
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 400px 400px;
+  }
+}
+
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false

@@ -30,6 +30,7 @@ export default function RootLayout({
         color: 'var(--foreground)',
         fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
       }}>
+        <div className="trader-background"><div className="trader-lines" /></div>
         <ThemeProvider>
           <AppShell>
             {children}

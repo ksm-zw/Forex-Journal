@@ -67,26 +67,29 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare data for AI analysis
-    const tradesSummary = trades.map((trade) => ({
-      pair: trade.pair,
-      direction: trade.direction,
-      entryPrice: trade.entryPrice,
-      exitPrice: trade.exitPrice,
-      outcome: trade.outcome || 'open',
-      profitLoss: trade.profitLoss,
-      profitLossPercent: trade.profitLossPercent,
-      emotionalState: trade.emotionalState,
-      setupQuality: trade.setupQuality,
-      strategy: trade.strategy,
-      notes: trade.notes,
-      whatLearned: trade.whatLearned,
-      mistakes: trade.mistakes ? JSON.parse(trade.mistakes) : [],
-      account: trade.account,
-      riskPercent: trade.riskPercent,
-      riskRewardRatio: trade.riskRewardRatio,
-      voiceNotesCount: trade.voiceNotes.length,
-      screenshotsCount: trade.screenshots.length,
-    }));
+    const tradesSummary = trades.map((trade) => {
+      const t: any = trade;
+      return {
+        pair: t.pair,
+        direction: t.direction,
+        entryPrice: t.entryPrice,
+        exitPrice: t.exitPrice,
+        outcome: t.outcome || 'open',
+        profitLoss: t.profitLoss,
+        profitLossPercent: t.profitLossPercent,
+        emotionalState: t.emotionalState,
+        setupQuality: t.setupQuality,
+        strategy: t.strategy,
+        notes: t.notes,
+        whatLearned: t.whatLearned,
+        mistakes: t.mistakes ? JSON.parse(t.mistakes) : [],
+        account: t.account,
+        riskPercent: t.riskPercent,
+        riskRewardRatio: t.riskRewardRatio,
+        voiceNotesCount: t.voiceNotes.length,
+        screenshotsCount: t.screenshots.length,
+      };
+    });
 
     // Calculate key metrics
     const closedTrades = trades.filter((t) => t.outcome && t.outcome !== 'open');

@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import DashboardHeader from '@/components/DashboardHeader';
 import { useTheme } from '@/context/ThemeContext';
 import { Toaster } from 'react-hot-toast';
+import AnimatedCard from '@/components/AnimatedCard';
 
 interface Trade {
   id: string;
@@ -110,7 +111,7 @@ export default function CalendarPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Calendar */}
-          <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white">
                 {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}
@@ -197,10 +198,10 @@ export default function CalendarPage() {
                 <span className="text-gray-700 dark:text-gray-300">No Trades</span>
               </div>
             </div>
-          </div>
+          </AnimatedCard>
 
           {/* Selected Date Trades */}
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700 h-fit">
+          <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700 h-fit">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
               {selectedDate ? new Date(selectedDate + 'T00:00:00').toLocaleDateString() : 'Select a date'}
             </h2>
@@ -233,7 +234,7 @@ export default function CalendarPage() {
                 {selectedDate ? 'No trades on this date' : 'Select a date to view trades'}
               </p>
             )}
-          </div>
+          </AnimatedCard>
         </div>
       </main>
 
