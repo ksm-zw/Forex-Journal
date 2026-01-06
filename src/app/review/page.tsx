@@ -35,7 +35,22 @@ export default function TradeReviewPage() {
             'x-user-id': 'demo-user',
           },
         });
+
+        if (!response.ok) {
+          let errBody: any = null;
+          try { errBody = await response.json(); } catch (e) { errBody = await response.text(); }
+          console.error('Failed to fetch trades:', response.status, errBody);
+          setTrades([]);
+          return;
+        }
+
         const data = await response.json();
+        if (!Array.isArray(data)) {
+          console.warn('Unexpected trades payload in review page', data);
+          setTrades([]);
+          return;
+        }
+
         setTrades(data);
       } catch (error) {
         console.error('Error fetching trades:', error);

@@ -19,7 +19,6 @@ export default function IconSidebar() {
   return (
     <aside
       style={{
-        display: 'none',
         flexDirection: 'column',
         gap: '10px',
         width: '64px',
@@ -29,10 +28,7 @@ export default function IconSidebar() {
         top: 0,
         backgroundColor: 'var(--background)',
         borderRight: '1px solid var(--panel-muted)',
-        '@media (min-width: 768px)': {
-          display: 'flex',
-        },
-      } as any}
+      }}
       className="hidden md:flex"
       aria-label="Main navigation"
     >

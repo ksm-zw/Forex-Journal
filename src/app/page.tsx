@@ -44,21 +44,64 @@ export default function DashboardPage() {
       const response = await fetch('/api/trades', {
         headers: { 'x-user-id': 'demo-user' },
       });
-      const data: Trade[] = await response.json();
-      setTrades(data);
+
+      if (!response.ok) {
+        // If the API returned an error, try to parse the body for details, but don't assume it's an array
+        let errBody: any = null;
+        try { errBody = await response.json(); } catch (e) { errBody = await response.text(); }
+        console.error('Failed to fetch trades:', response.status, errBody);
+        toast.error('Failed to fetch trades');
+        setTrades([]);
+        setMetrics({
+          totalPnL: 0,
+          winRate: 0,
+          totalTrades: 0,
+          closedTrades: 0,
+          avgWin: 0,
+          avgLoss: 0,
+          wins: 0,
+          losses: 0,
+          bestDay: 0,
+          worstDay: 0,
+        });
+        return;
+      }
+
+      const data: unknown = await response.json();
+      if (!Array.isArray(data)) {
+        console.warn('Unexpected trades payload, expected array but got:', data);
+        toast.error('Unexpected trades format');
+        setTrades([]);
+        setMetrics({
+          totalPnL: 0,
+          winRate: 0,
+          totalTrades: 0,
+          closedTrades: 0,
+          avgWin: 0,
+          avgLoss: 0,
+          wins: 0,
+          losses: 0,
+          bestDay: 0,
+          worstDay: 0,
+        });
+        return;
+      }
+
+      const tradesData: Trade[] = data;
+      setTrades(tradesData);
 
       // Calculate metrics
-      const closed = data.filter(t => t.outcome && t.outcome !== 'OPEN');
+      const closed = tradesData.filter(t => t.outcome && t.outcome !== 'OPEN');
       const wins = closed.filter(t => t.outcome === 'WIN').length;
       const losses = closed.filter(t => t.outcome === 'LOSS').length;
-      const totalPnL = data.reduce((sum, t) => sum + (t.profitLoss || 0), 0);
-      const avgWin = wins > 0 ? data.filter(t => t.outcome === 'WIN' && t.profitLoss).reduce((sum, t) => sum + t.profitLoss!, 0) / wins : 0;
-      const avgLoss = losses > 0 ? Math.abs(data.filter(t => t.outcome === 'LOSS' && t.profitLoss).reduce((sum, t) => sum + t.profitLoss!, 0) / losses) : 0;
+      const totalPnL = tradesData.reduce((sum, t) => sum + (t.profitLoss || 0), 0);
+      const avgWin = wins > 0 ? tradesData.filter(t => t.outcome === 'WIN' && t.profitLoss).reduce((sum, t) => sum + t.profitLoss!, 0) / wins : 0;
+      const avgLoss = losses > 0 ? Math.abs(tradesData.filter(t => t.outcome === 'LOSS' && t.profitLoss).reduce((sum, t) => sum + t.profitLoss!, 0) / losses) : 0;
 
       setMetrics({
         totalPnL: parseFloat(totalPnL.toFixed(2)),
         winRate: closed.length > 0 ? parseFloat(((wins / closed.length) * 100).toFixed(2)) : 0,
-        totalTrades: data.length,
+        totalTrades: tradesData.length,
         closedTrades: closed.length,
         avgWin: parseFloat(avgWin.toFixed(2)),
         avgLoss: parseFloat(avgLoss.toFixed(2)),

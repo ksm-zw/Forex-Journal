@@ -1365,7 +1365,6 @@ function IconSidebar() {
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
         style: {
-            display: 'none',
             flexDirection: 'column',
             gap: '10px',
             width: '64px',
@@ -1374,10 +1373,7 @@ function IconSidebar() {
             position: 'sticky',
             top: 0,
             backgroundColor: 'var(--background)',
-            borderRight: '1px solid var(--panel-muted)',
-            '@media (min-width: 768px)': {
-                display: 'flex'
-            }
+            borderRight: '1px solid var(--panel-muted)'
         },
         className: "hidden md:flex",
         "aria-label": "Main navigation",
@@ -1407,12 +1403,12 @@ function IconSidebar() {
                     children: "YM"
                 }, void 0, false, {
                     fileName: "[project]/src/components/IconSidebar.tsx",
-                    lineNumber: 48,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/IconSidebar.tsx",
-                lineNumber: 39,
+                lineNumber: 35,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1471,7 +1467,7 @@ function IconSidebar() {
                                 "aria-hidden": true
                             }, void 0, false, {
                                 fileName: "[project]/src/components/IconSidebar.tsx",
-                                lineNumber: 113,
+                                lineNumber: 109,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ActiveIcon, {
@@ -1481,19 +1477,19 @@ function IconSidebar() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/src/components/IconSidebar.tsx",
-                                lineNumber: 122,
+                                lineNumber: 118,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, it.href, true, {
                         fileName: "[project]/src/components/IconSidebar.tsx",
-                        lineNumber: 78,
+                        lineNumber: 74,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/components/IconSidebar.tsx",
-                lineNumber: 67,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1507,7 +1503,7 @@ function IconSidebar() {
                 children: "v0.1"
             }, void 0, false, {
                 fileName: "[project]/src/components/IconSidebar.tsx",
-                lineNumber: 128,
+                lineNumber: 124,
                 columnNumber: 7
             }, this)
         ]

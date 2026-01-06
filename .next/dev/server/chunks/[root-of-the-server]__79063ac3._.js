@@ -52,12 +52,24 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f40$prisma$2f$client$29$__ = __turbopack_context__.i("[externals]/@prisma/client [external] (@prisma/client, cjs, [project]/node_modules/@prisma/client)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module '../../../../data/demo-trades.json'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
 ;
 ;
-const prisma = new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f40$prisma$2f$client$29$__["PrismaClient"]();
+;
+let prisma = null;
+try {
+    prisma = new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f40$prisma$2f$client$29$__["PrismaClient"]();
+} catch (e) {
+    console.warn('Prisma client failed to initialize, falling back to demo data', e);
+    prisma = null;
+}
 async function GET(request) {
+    const userId = request.headers.get('x-user-id') || 'demo-user';
     try {
-        const userId = request.headers.get('x-user-id') || 'demo-user';
         const { searchParams } = new URL(request.url);
         const pair = searchParams.get('pair');
         const startDate = searchParams.get('startDate');
@@ -79,6 +91,12 @@ async function GET(request) {
             if (startDate) where.entryTime.gte = new Date(startDate);
             if (endDate) where.entryTime.lte = new Date(endDate);
         }
+        if (!prisma) {
+            console.warn('Prisma not available, returning demo trades');
+            // Optionally, apply filters on demo data
+            const demo = demoTrades.filter((t)=>t.userId === userId || !t.userId).slice(0, 100);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(demo);
+        }
         const trades = await prisma.trade.findMany({
             where,
             orderBy: {
@@ -92,11 +110,9 @@ async function GET(request) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(trades);
     } catch (error) {
         console.error('Error fetching trades:', error);
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: 'Failed to fetch trades'
-        }, {
-            status: 500
-        });
+        // On error, fall back to demo data so the frontend remains usable
+        const demo = demoTrades.filter((t)=>t.userId === userId || !t.userId).slice(0, 100);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(demo);
     }
 }
 async function POST(request) {

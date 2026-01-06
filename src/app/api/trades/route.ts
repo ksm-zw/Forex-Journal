@@ -1,11 +1,31 @@
 import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
+import { readFileSync } from 'fs';
+import path from 'path';
 
-const prisma = new PrismaClient();
+let prisma: PrismaClient | null = null;
+try {
+  prisma = new PrismaClient();
+} catch (e) {
+  console.warn('Prisma client failed to initialize', e);
+  prisma = null;
+}
+
+function loadDemoTrades() {
+  try {
+    const dataPath = path.join(process.cwd(), 'data', 'demo-trades.json');
+    const raw = readFileSync(dataPath, 'utf-8');
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error('Failed to load demo trades file', e);
+    return [];
+  }
+}
 
 export async function GET(request: NextRequest) {
+  const userId = request.headers.get('x-user-id') || 'demo-user';
+
   try {
-    const userId = request.headers.get('x-user-id') || 'demo-user';
     const { searchParams } = new URL(request.url);
     const pair = searchParams.get('pair');
     const startDate = searchParams.get('startDate');
@@ -28,6 +48,16 @@ export async function GET(request: NextRequest) {
       if (endDate) where.entryTime.lte = new Date(endDate);
     }
 
+    if (!prisma) {
+      console.warn('Prisma not available, returning demo trades');
+      // Optionally, apply filters on demo data
+      const demoAll = loadDemoTrades();
+      const demo = (demoAll as any[])
+        .filter((t: any) => t.userId === userId || !t.userId)
+        .slice(0, 100);
+      return NextResponse.json(demo);
+    }
+
     const trades = await prisma.trade.findMany({
       where,
       orderBy: { entryTime: 'desc' },
@@ -40,7 +70,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(trades);
   } catch (error) {
     console.error('Error fetching trades:', error);
-    return NextResponse.json({ error: 'Failed to fetch trades' }, { status: 500 });
+    // On error, fall back to demo data so the frontend remains usable
+    const demoAll = loadDemoTrades();
+    const demo = (demoAll as any[])
+      .filter((t: any) => t.userId === userId || !t.userId)
+      .slice(0, 100);
+    return NextResponse.json(demo);
   }
 }
 
@@ -48,6 +83,10 @@ export async function POST(request: NextRequest) {
   try {
     const userId = request.headers.get('x-user-id') || 'demo-user';
     const body = await request.json();
+
+    if (!prisma) {
+      return NextResponse.json({ error: 'Prisma not available' }, { status: 503 });
+    }
 
     const trade = await prisma.trade.create({
       data: {
