@@ -192,6 +192,12 @@
       "namedRegex": "^/api/voice\\-notes(?:/)?$"
     },
     {
+      "page": "/backtest",
+      "regex": "^/backtest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/backtest(?:/)?$"
+    },
+    {
       "page": "/calendar",
       "regex": "^/calendar(?:/)?$",
       "routeKeys": {},
@@ -226,6 +232,12 @@
       "regex": "^/strategies(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/strategies(?:/)?$"
+    },
+    {
+      "page": "/summaries",
+      "regex": "^/summaries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/summaries(?:/)?$"
     }
   ],
   "dataRoutes": [],

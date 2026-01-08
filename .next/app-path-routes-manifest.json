@@ -22,6 +22,7 @@
   "/api/trades/[id]/timeframe-compliance/route": "/api/trades/[id]/timeframe-compliance",
   "/api/trades/route": "/api/trades",
   "/api/voice-notes/route": "/api/voice-notes",
+  "/backtest/page": "/backtest",
   "/calendar/page": "/calendar",
   "/favicon.ico/route": "/favicon.ico",
   "/insights/page": "/insights",
@@ -29,5 +30,6 @@
   "/planning/page": "/planning",
   "/review/page": "/review",
   "/strategies/[id]/page": "/strategies/[id]",
-  "/strategies/page": "/strategies"
+  "/strategies/page": "/strategies",
+  "/summaries/page": "/summaries"
 }

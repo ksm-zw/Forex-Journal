@@ -22,6 +22,7 @@
   "/api/trades/[id]/timeframe-compliance/route": "app/api/trades/[id]/timeframe-compliance/route.js",
   "/api/trades/route": "app/api/trades/route.js",
   "/api/voice-notes/route": "app/api/voice-notes/route.js",
+  "/backtest/page": "app/backtest/page.js",
   "/calendar/page": "app/calendar/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/insights/page": "app/insights/page.js",
@@ -29,5 +30,6 @@
   "/planning/page": "app/planning/page.js",
   "/review/page": "app/review/page.js",
   "/strategies/[id]/page": "app/strategies/[id]/page.js",
-  "/strategies/page": "app/strategies/page.js"
+  "/strategies/page": "app/strategies/page.js",
+  "/summaries/page": "app/summaries/page.js"
 }
