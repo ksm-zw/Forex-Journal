@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -23,12 +23,124 @@ model User {
   weeklyFocus   WeeklyFocus[]
   voiceNotes    VoiceNote[]
   screenshots   Screenshot[]
+  strategies    Strategy[]
+  summaries     Summary[]
+}
+
+model Strategy {
+  id                    String     @id @default(cuid())
+  userId                String
+  user                  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Strategy Details
+  strategy_name         String     // e.g., "Scalper", "Swing Trader", "Position Trader"
+  description           String?
+  market_type           String     @default("mixed") // trend, range, mixed
+  allowed_sessions      String     @default("Asia,London,NY") // JSON array or CSV
+  max_trades_per_day    Int        @default(5)
+  default_risk_percent  Float      @default(2.0)
+  expected_rr_min       Float      @default(1.0)
+  status                String     @default("active") // active, paused, deprecated
+  
+  // Relations
+  trades                Trade[]
+  entry_models          EntryModel[]
+  timeframe_roles       TimeframeRole[]
+  rules                 StrategyRule[]
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@unique([userId, strategy_name])
+  @@index([userId])
+  @@index([status])
+}
+
+model EntryModel {
+  id                    String     @id @default(cuid())
+  strategy_id           String
+  strategy              Strategy   @relation(fields: [strategy_id], references: [id], onDelete: Cascade)
+  
+  // Entry Model Details
+  model_name            String     // e.g., "Model A", "Aggressive Entry"
+  description           String?
+  confirmation_type     String     @default("break_retest") // break & retest, liquidity sweep, candle close, etc.
+  risk_profile          String     @default("balanced") // aggressive, balanced, conservative
+  
+  // Relations
+  trades                Trade[]
+  timeframe_roles       TimeframeRole[]
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@unique([strategy_id, model_name])
+  @@index([strategy_id])
+}
+
+model TimeframeRole {
+  id                    String     @id @default(cuid())
+  strategy_id           String
+  strategy              Strategy   @relation(fields: [strategy_id], references: [id], onDelete: Cascade)
+  entry_model_id        String?    // Optional: if specific to an entry model
+  entry_model           EntryModel? @relation(fields: [entry_model_id], references: [id], onDelete: SetNull)
+  
+  // Timeframe Role Details
+  timeframe             String     // W1, D1, H4, H1, M15, M5, M1
+  role_type             String     // bias, structure, poi (point of interest), confirmation, entry, execution
+  description           String?
+  order_index           Int        // Execution order in the sequence
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@unique([strategy_id, entry_model_id, timeframe, role_type])
+  @@index([strategy_id])
+  @@index([entry_model_id])
+  @@index([order_index])
+}
+
+model StrategyRule {
+  id                    String     @id @default(cuid())
+  strategy_id           String
+  strategy              Strategy   @relation(fields: [strategy_id], references: [id], onDelete: Cascade)
+  
+  // Rule Details
+  description           String     // e.g., "Always use stop loss", "Don't trade outside London session"
+  rule_type             String     @default("mandatory") // mandatory, optional
+  weight                Float      @default(1.0) // Impact score for violations
+  
+  // Relations
+  trade_compliance      TradeRuleCompliance[]
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@index([strategy_id])
 }
 
 model Trade {
   id                  String     @id @default(cuid())
   userId              String
   user                User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Multi-Strategy & Research Lab Fields
+  strategy_id         String?
+  strategy            Strategy?  @relation(fields: [strategy_id], references: [id], onDelete: SetNull)
+  entry_model_id      String?
+  entry_model         EntryModel? @relation(fields: [entry_model_id], references: [id], onDelete: SetNull)
+  timeframe_sequence_id String?  // Reference to the timeframe sequence used
+  test_mode           String     @default("live_simulation") // live_simulation, backtest, hypothetical
+  
+  // Planned vs Actual
+  planned_entry       Float?     // Planned entry price
+  planned_sl          Float?     // Planned stop loss
+  planned_tp          Float?     // Planned take profit
+  planned_rr          Float?     // Planned risk:reward ratio
   
   // Core Trade Details
   pair                String     // Currency pair (EUR/USD, GBP/USD, etc.)
@@ -37,6 +149,7 @@ model Trade {
   exitPrice           Float?
   entryTime           DateTime
   exitTime            DateTime?
+  duration_minutes    Int?       // Trade duration in minutes
   
   // Position Management
   volume              Float      // Lot size or quantity
@@ -56,11 +169,17 @@ model Trade {
   profitLoss          Float?     // Manual P&L or calculated
   profitLossPercent   Float?     // P&L as percentage
   outcome             String?    // WIN, LOSS, BREAKEVEN, OPEN
+  result              String?    // win, loss, be (breakeven), partial (for backtest)
   status              String     @default("open") // open, closed, cancelled
   
   // Trading Strategy & Setup
-  strategy            String?    // Strategy type/tag (Pullback, Breakout, etc.)
+  strategy_old        String?    // Legacy strategy field (will be migrated)
   setupType           String?    // Setup classification
+  session             String?    // Asia, London, NY
+  market_condition    String?    // trending, ranging, choppy
+  
+  // Rule & Compliance
+  rules_followed      Boolean    @default(true)
   
   // Reflective Fields
   notes               String?    // Trade notes/observations
@@ -69,21 +188,88 @@ model Trade {
   whatLearned         String?    // Lessons learned from this trade
   mistakes            String?    // JSON array of mistakes made
   
-  // Media & Documentation
+  // Relations
   screenshots         Screenshot[]
   voiceNotes          VoiceNote[]
+  timeframe_compliance TradeTimeframeCompliance[]
+  rule_compliance     TradeRuleCompliance[]
   
   // Timestamps
   createdAt           DateTime   @default(now())
   updatedAt           DateTime   @updatedAt
   
   @@index([userId])
+  @@index([strategy_id])
+  @@index([entry_model_id])
   @@index([pair])
   @@index([entryTime])
   @@index([outcome])
   @@index([status])
   @@index([account])
-  @@index([strategy])
+  @@index([test_mode])
+}
+
+model TradeTimeframeCompliance {
+  id                    String     @id @default(cuid())
+  trade_id              String
+  trade                 Trade      @relation(fields: [trade_id], references: [id], onDelete: Cascade)
+  
+  // Timeframe Step Compliance
+  timeframe             String     // W1, D1, H4, H1, M15, M5, M1
+  role_type             String     // bias, structure, poi, confirmation, entry, execution
+  respected             Boolean    // Was this timeframe step respected?
+  notes                 String?    // Why was it skipped or how was it respected?
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@unique([trade_id, timeframe, role_type])
+  @@index([trade_id])
+}
+
+model TradeRuleCompliance {
+  id                    String     @id @default(cuid())
+  trade_id              String
+  trade                 Trade      @relation(fields: [trade_id], references: [id], onDelete: Cascade)
+  rule_id               String
+  rule                  StrategyRule @relation(fields: [rule_id], references: [id], onDelete: Cascade)
+  
+  // Rule Compliance
+  followed              Boolean    // Was the rule followed?
+  notes                 String?    // Why it was violated or how it was applied?
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@unique([trade_id, rule_id])
+  @@index([trade_id])
+  @@index([rule_id])
+}
+
+model Summary {
+  id                    String     @id @default(cuid())
+  userId                String
+  user                  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Summary Details
+  period_type           String     // day, week, month, quarter, half, year
+  start_date            DateTime
+  end_date              DateTime
+  summary_mode          String     @default("rule_based") // rule_based, ai_powered
+  
+  // Content
+  content               String     // JSON: narrative, metrics, feedback
+  feedback_actions      String?    // JSON: STOP/CONTINUE/EXPERIMENT items
+  
+  // Timestamps
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  
+  @@index([userId])
+  @@index([period_type])
+  @@index([start_date])
 }
 
 model Screenshot {

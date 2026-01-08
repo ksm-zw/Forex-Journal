@@ -1,82 +1,15 @@
-[00:00:19.559] Server  LOG     ✓ Ready in 16.9s
-[00:01:24.044] Server  LOG     ○ Compiling / ...
-[00:01:42.484] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+[00:00:15.253] Server  LOG     ✓ Ready in 14.8s
+[00:00:18.281] Server  LOG     ○ Compiling / ...
+[00:00:30.546] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:01:50.173] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:56.913] Server  ERROR   Error fetching trades: PrismaClientInitializationError: 
-Invalid `prisma.trade.findMany()` invocation in
-/workspaces/Forex-Journal/.next/dev/server/chunks/[root-of-the-server]__f759096b._.js:128:43
-
-  125     const demo = demoAll.filter((t)=>t.userId === userId || !t.userId).slice(0, 100);
-  126     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(demo);
-  127 }
-→ 128 const trades = await prisma.trade.findMany(
-error: Error validating datasource `db`: the URL must start with the protocol `file:`.
-  -->  schema.prisma:10
-   | 
- 9 |   provider = "sqlite"
-10 |   url      = env("DATABASE_URL")
-   | 
-
-Validation Error Count: 1
-[00:02:12.482] Server  ERROR   Error fetching trades: PrismaClientInitializationError: 
-Invalid `prisma.trade.findMany()` invocation in
-/workspaces/Forex-Journal/.next/dev/server/chunks/[root-of-the-server]__f759096b._.js:128:43
-
-  125     const demo = demoAll.filter((t)=>t.userId === userId || !t.userId).slice(0, 100);
-  126     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(demo);
-  127 }
-→ 128 const trades = await prisma.trade.findMany(
-error: Error validating datasource `db`: the URL must start with the protocol `file:`.
-  -->  schema.prisma:10
-   | 
- 9 |   provider = "sqlite"
-10 |   url      = env("DATABASE_URL")
-   | 
-
-Validation Error Count: 1
-[00:02:26.217] Server  LOG     ○ Compiling /analytics ...
-[00:02:29.065] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /analytics. Please move it to viewport export instead.
+[00:05:10.195] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:02:29.630] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /analytics. Please move it to viewport export instead.
+[00:05:11.787] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:18.719] Server  LOG     ○ Compiling /analytics ...
+[00:05:20.014] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /analytics. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:02:31.652] Server  ERROR   Error fetching trades: PrismaClientInitializationError: 
-Invalid `prisma.trade.findMany()` invocation in
-/workspaces/Forex-Journal/.next/dev/server/chunks/[root-of-the-server]__f759096b._.js:128:43
-
-  125     const demo = demoAll.filter((t)=>t.userId === userId || !t.userId).slice(0, 100);
-  126     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(demo);
-  127 }
-→ 128 const trades = await prisma.trade.findMany(
-error: Error validating datasource `db`: the URL must start with the protocol `file:`.
-  -->  schema.prisma:10
-   | 
- 9 |   provider = "sqlite"
-10 |   url      = env("DATABASE_URL")
-   | 
-
-Validation Error Count: 1
-[00:02:32.468] Browser ERROR   uncaughtError: RangeError: Invalid time value
-[00:17:58.554] Server  LOG     ✓ Compiled in 4s
-[00:17:59.111] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:18:00.179] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /analytics. Please move it to viewport export instead.
+[00:05:20.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:26.459] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+[00:05:30.050] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /review. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:18:03.107] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:05.056] Server  ERROR   Error fetching trades: PrismaClientInitializationError: 
-Invalid `prisma.trade.findMany()` invocation in
-/workspaces/Forex-Journal/.next/dev/server/chunks/[root-of-the-server]__f759096b._.js:128:43
-
-  125     const demo = demoAll.filter((t)=>t.userId === userId || !t.userId).slice(0, 100);
-  126     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(demo);
-  127 }
-→ 128 const trades = await prisma.trade.findMany(
-error: Error validating datasource `db`: the URL must start with the protocol `file:`.
-  -->  schema.prisma:10
-   | 
- 9 |   provider = "sqlite"
-10 |   url      = env("DATABASE_URL")
-   | 
-
-Validation Error Count: 1
-[00:18:17.277] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
-[00:18:17.277] Browser ERROR   uncaughtError: Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
+[00:05:30.705] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

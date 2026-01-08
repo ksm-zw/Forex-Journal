@@ -1,0 +1,3 @@
+{
+  "/api/analytics/rule-violations/route": "app/api/analytics/rule-violations/route.js"
+}

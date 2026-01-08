@@ -1,0 +1,3 @@
+{
+  "/api/strategies/[id]/timeframe-roles/route": "app/api/strategies/[id]/timeframe-roles/route.js"
+}

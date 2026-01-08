@@ -1,0 +1,109 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+      - text: Skip to content
+    - complementary "Main navigation" [ref=e4]:
+      - generic [ref=e6]: YM
+      - navigation [ref=e7]:
+        - link "Dashboard" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img [ref=e10]
+        - link "Analytics" [ref=e13] [cursor=pointer]:
+          - /url: /analytics
+          - img [ref=e14]
+        - link "Calendar" [ref=e15] [cursor=pointer]:
+          - /url: /calendar
+          - img [ref=e16]
+        - link "Planning" [ref=e18] [cursor=pointer]:
+          - /url: /planning
+          - img [ref=e19]
+        - link "Insights" [ref=e22] [cursor=pointer]:
+          - /url: /insights
+          - img [ref=e23]
+        - link "Review" [ref=e25] [cursor=pointer]:
+          - /url: /review
+          - img [ref=e26]
+      - generic [ref=e29]: v0.1
+    - generic [ref=e30]:
+      - banner [ref=e31]:
+        - generic [ref=e32]:
+          - heading "Backtesting Dashboard" [level=1] [ref=e33]
+          - generic [ref=e34]: Performance & calendar overview
+        - generic [ref=e35]:
+          - button [ref=e36] [cursor=pointer]:
+            - img [ref=e37]
+          - button [ref=e40] [cursor=pointer]:
+            - img [ref=e41]
+          - button "Add trade" [ref=e44] [cursor=pointer]: +
+      - main [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - heading "Trading Dashboard" [level=2] [ref=e48]
+            - paragraph [ref=e49]: Your complete trading journal and performance analytics
+          - button "Refresh Data" [ref=e51] [cursor=pointer]:
+            - img [ref=e52]
+            - text: Refresh Data
+          - generic [ref=e56]:
+            - generic [ref=e57] [cursor=pointer]:
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - paragraph [ref=e60]: Total P&L
+                  - heading "$0" [level=3] [ref=e61]
+                  - paragraph [ref=e62]: 0 closed trades
+                - img [ref=e64]
+              - generic [ref=e66]:
+                - generic [ref=e67]: ↑
+                - generic [ref=e68]: 12.5% from last month
+            - generic [ref=e70] [cursor=pointer]:
+              - generic [ref=e71]:
+                - paragraph [ref=e72]: Win Rate
+                - heading "0%" [level=3] [ref=e73]
+                - paragraph [ref=e74]: 0W / 0L
+              - img [ref=e76]
+            - generic [ref=e80] [cursor=pointer]:
+              - generic [ref=e81]:
+                - paragraph [ref=e82]: Avg Win / Loss
+                - heading "$0 / $0" [level=3] [ref=e83]
+                - paragraph [ref=e84]: Risk-Reward Ratio
+              - img [ref=e86]
+            - generic [ref=e92] [cursor=pointer]:
+              - paragraph [ref=e93]: Total Trades
+              - heading "0" [level=3] [ref=e94]
+              - paragraph [ref=e95]: 0 closed
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - heading "Equity Curve" [level=3] [ref=e98]
+              - generic [ref=e99]: No trades to display
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - heading "Win Distribution" [level=3] [ref=e102]
+                - generic [ref=e103]: No closed trades yet
+              - generic [ref=e104]:
+                - heading "Top Pairs" [level=3] [ref=e105]
+                - generic [ref=e106]: No trade data yet
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - paragraph [ref=e109]: Consecutive Wins
+              - paragraph [ref=e110]: "0"
+            - generic [ref=e111]:
+              - paragraph [ref=e112]: Best Day
+              - paragraph [ref=e113]: $0
+            - generic [ref=e114]:
+              - paragraph [ref=e115]: Worst Day
+              - paragraph [ref=e116]: $0
+      - dialog "Welcome to Young Money" [ref=e118]:
+        - heading "Welcome to Young Money" [level=3] [ref=e119]
+        - generic [ref=e120]:
+          - paragraph [ref=e121]: This app is a private trading journal. You can load a short demo dataset to explore features like analytics, heatmaps, and exports. No real trades are uploaded.
+          - generic [ref=e122]:
+            - button "Load demo data" [ref=e123]
+            - button "Dismiss onboarding" [ref=e124]: Dismiss
+        - button "Close dialog" [active] [ref=e126]: Close
+  - button "Open Next.js Dev Tools" [ref=e132] [cursor=pointer]:
+    - img [ref=e133]
+  - alert [ref=e136]
+```
