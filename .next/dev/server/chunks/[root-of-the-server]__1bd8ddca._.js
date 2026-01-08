@@ -265,7 +265,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$analytics$2e$t
 ;
 async function GET(request) {
     try {
-        const userId = request.headers.get('x-user-id') || 'demo-user';
+        const userIdentifier = request.headers.get('x-user-id') || 'demo@forex-research.com';
         if (!__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"]) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: 'Database not available'
@@ -273,9 +273,28 @@ async function GET(request) {
                 status: 503
             });
         }
+        let user = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].user.findUnique({
+            where: {
+                email: userIdentifier
+            }
+        });
+        if (!user) {
+            user = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].user.findUnique({
+                where: {
+                    id: userIdentifier
+                }
+            });
+        }
+        if (!user) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'User not found'
+            }, {
+                status: 404
+            });
+        }
         const strategies = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].strategy.findMany({
             where: {
-                userId
+                userId: user.id
             },
             include: {
                 trades: {

@@ -27,5 +27,7 @@
   "/insights/page": "app/insights/page.js",
   "/page": "app/page.js",
   "/planning/page": "app/planning/page.js",
-  "/review/page": "app/review/page.js"
+  "/review/page": "app/review/page.js",
+  "/strategies/[id]/page": "app/strategies/[id]/page.js",
+  "/strategies/page": "app/strategies/page.js"
 }

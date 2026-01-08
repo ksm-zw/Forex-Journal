@@ -1,9 +1,17 @@
 {
   "/analytics/page": "app/analytics/page.js",
+  "/api/analytics/period-analysis/route": "app/api/analytics/period-analysis/route.js",
+  "/api/analytics/rule-violations/route": "app/api/analytics/rule-violations/route.js",
   "/api/analytics/strategy-comparison/route": "app/api/analytics/strategy-comparison/route.js",
-  "/api/debug/user/route": "app/api/debug/user/route.js",
+  "/api/analytics/timeframe-performance/route": "app/api/analytics/timeframe-performance/route.js",
+  "/api/strategies/[id]/route": "app/api/strategies/[id]/route.js",
   "/api/strategies/route": "app/api/strategies/route.js",
+  "/api/summaries/route": "app/api/summaries/route.js",
   "/api/trades/route": "app/api/trades/route.js",
+  "/calendar/page": "app/calendar/page.js",
+  "/insights/page": "app/insights/page.js",
   "/page": "app/page.js",
-  "/review/page": "app/review/page.js"
+  "/planning/page": "app/planning/page.js",
+  "/review/page": "app/review/page.js",
+  "/strategies/page": "app/strategies/page.js"
 }

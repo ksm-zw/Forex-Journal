@@ -7,7 +7,7 @@ import { prisma } from '@/lib/prisma';
  */
 export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = request.headers.get('x-user-id') || 'demo-user';
+    const userIdentifier = request.headers.get('x-user-id') || 'demo@forex-research.com';
     const { id: tradeId } = await params;
     const body = await request.json();
 
@@ -15,8 +15,22 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: 'Database not available' }, { status: 503 });
     }
 
+    let user = await prisma.user.findUnique({
+      where: { email: userIdentifier },
+    });
+
+    if (!user) {
+      user = await prisma.user.findUnique({
+        where: { id: userIdentifier },
+      });
+    }
+
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    }
+
     // Verify trade ownership
-    const trade = await prisma.trade.findFirst({ where: { id: tradeId, userId } });
+    const trade = await prisma.trade.findFirst({ where: { id: tradeId, userId: user.id } });
     if (!trade) {
       return NextResponse.json({ error: 'Trade not found' }, { status: 404 });
     }
@@ -61,15 +75,29 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
  */
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = request.headers.get('x-user-id') || 'demo-user';
+    const userIdentifier = request.headers.get('x-user-id') || 'demo@forex-research.com';
     const { id: tradeId } = await params;
 
     if (!prisma) {
       return NextResponse.json({ error: 'Database not available' }, { status: 503 });
     }
 
+    let user = await prisma.user.findUnique({
+      where: { email: userIdentifier },
+    });
+
+    if (!user) {
+      user = await prisma.user.findUnique({
+        where: { id: userIdentifier },
+      });
+    }
+
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    }
+
     // Verify trade ownership
-    const trade = await prisma.trade.findFirst({ where: { id: tradeId, userId } });
+    const trade = await prisma.trade.findFirst({ where: { id: tradeId, userId: user.id } });
     if (!trade) {
       return NextResponse.json({ error: 'Trade not found' }, { status: 404 });
     }

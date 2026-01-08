@@ -29,9 +29,19 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    let user = await prisma.user.findUnique({ where: { email: userIdentifier } });
-    if (!user) user = await prisma.user.findUnique({ where: { id: userIdentifier } });
-    if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    let user = await prisma.user.findUnique({
+      where: { email: userIdentifier },
+    });
+
+    if (!user) {
+      user = await prisma.user.findUnique({
+        where: { id: userIdentifier },
+      });
+    }
+
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    }
 
     const trades = await prisma.trade.findMany({
       where: { userId: user.id },
