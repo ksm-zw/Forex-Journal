@@ -1,7 +1,25 @@
-import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+import { readFileSync } from 'fs';
+import path from 'path';
 
-const prisma = new PrismaClient();
+function loadDemoTrades() {
+  const possible = [
+    path.join(process.cwd(), 'data', 'demo-trades.json'),
+    path.join(process.cwd(), 'src', 'data', 'demo-trades.json'),
+    path.join(process.cwd(), 'public', 'data', 'demo-trades.json'),
+  ];
+
+  for (const p of possible) {
+    try {
+      const raw = readFileSync(p, 'utf-8');
+      return JSON.parse(raw);
+    } catch (e) {
+      // try next
+    }
+  }
+  return [];
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,14 +36,21 @@ export async function GET(request: NextRequest) {
       if (endDate) where.entryTime.lte = new Date(endDate);
     }
 
-    const trades = await prisma.trade.findMany({
-      where,
-      include: {
-        screenshots: true,
-        voiceNotes: true,
-      },
-      orderBy: { entryTime: 'asc' },
-    });
+    let trades: any[] = [];
+
+    if (!prisma) {
+      console.warn('Prisma not available in export route; falling back to demo data');
+      trades = loadDemoTrades().filter((t: any) => t.userId === userId || !t.userId);
+    } else {
+      trades = await prisma.trade.findMany({
+        where,
+        include: {
+          screenshots: true,
+          voiceNotes: true,
+        },
+        orderBy: { entryTime: 'asc' },
+      });
+    }
 
     if (format === 'json') {
       return NextResponse.json(trades, {

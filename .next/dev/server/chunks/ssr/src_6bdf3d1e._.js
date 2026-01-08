@@ -674,8 +674,21 @@ function YearlyHeatmap({ trades, onSelectRange }) {
             d.setDate(now.getDate() - i);
             map[d.toISOString().slice(0, 10)] = 0;
         }
+        function safeDateKey(value) {
+            if (!value) return null;
+            // Try to parse common formats and timestamps
+            const parsed = typeof value === 'number' ? new Date(value) : new Date(String(value));
+            if (!(parsed instanceof Date) || isNaN(parsed.getTime())) return null;
+            return parsed.toISOString().slice(0, 10);
+        }
         trades.forEach((t)=>{
-            const key = new Date(t.entryTime).toISOString().slice(0, 10);
+            const key = safeDateKey(t.entryTime);
+            if (!key) return; // skip invalid dates
+            // only include within the last 365 days (map already initialized for those keys)
+            if (typeof map[key] === 'undefined') {
+                // ignore out-of-range dates
+                return;
+            }
             map[key] = (map[key] || 0) + (t.profitLoss || 0);
         });
         return Object.entries(map).map(([day, pnl])=>({
@@ -758,7 +771,7 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                         children: "Yearly P&L Heatmap"
                     }, void 0, false, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                        lineNumber: 92,
+                        lineNumber: 106,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -774,13 +787,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                                 children: start
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                                lineNumber: 95,
+                                                lineNumber: 109,
                                                 columnNumber: 34
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 109,
                                         columnNumber: 23
                                     }, this),
                                     " ",
@@ -791,13 +804,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                                 children: end
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                                lineNumber: 95,
+                                                lineNumber: 109,
                                                 columnNumber: 85
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 109,
                                         columnNumber: 75
                                     }, this),
                                     (start || end) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -813,13 +826,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                         children: "Clear"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                        lineNumber: 96,
+                                        lineNumber: 110,
                                         columnNumber: 32
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                lineNumber: 94,
+                                lineNumber: 108,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -831,19 +844,19 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                 children: monthZoom ? 'Month Zoom: ON' : 'Month Zoom: OFF'
                             }, void 0, false, {
                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                lineNumber: 98,
+                                lineNumber: 112,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                        lineNumber: 93,
+                        lineNumber: 107,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                lineNumber: 91,
+                lineNumber: 105,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -888,13 +901,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                         children: showLabel ? d.pnl > 0 ? `+$${Math.round(d.pnl)}` : `-$${Math.abs(Math.round(d.pnl))}` : ''
                     }, d.day, false, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                        lineNumber: 113,
+                        lineNumber: 127,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                lineNumber: 104,
+                lineNumber: 118,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -902,13 +915,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                 children: "Green = Profit, Pink = Loss. Click a day to set start, click another to set end. Toggle Month Zoom to select whole month on click. Clear to reset selection."
             }, void 0, false, {
                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                lineNumber: 132,
+                lineNumber: 146,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-        lineNumber: 90,
+        lineNumber: 104,
         columnNumber: 5
     }, this);
 }

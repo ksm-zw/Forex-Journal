@@ -78,14 +78,21 @@ try {
     prisma = null;
 }
 function loadDemoTrades() {
-    try {
-        const dataPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'data', 'demo-trades.json');
-        const raw = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["readFileSync"])(dataPath, 'utf-8');
-        return JSON.parse(raw);
-    } catch (e) {
-        console.error('Failed to load demo trades file', e);
-        return [];
+    const possible = [
+        __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'data', 'demo-trades.json'),
+        __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'src', 'data', 'demo-trades.json'),
+        __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'public', 'data', 'demo-trades.json')
+    ];
+    for (const p of possible){
+        try {
+            const raw = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["readFileSync"])(p, 'utf-8');
+            return JSON.parse(raw);
+        } catch (e) {
+        // try next
+        }
     }
+    console.error('Failed to load demo trades file from known locations');
+    return [];
 }
 async function GET(request) {
     const userId = request.headers.get('x-user-id') || 'demo-user';

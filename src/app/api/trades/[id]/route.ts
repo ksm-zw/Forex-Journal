@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export async function GET(
   request: NextRequest,
@@ -10,6 +8,10 @@ export async function GET(
   try {
     const { id } = await params;
     const userId = request.headers.get('x-user-id') || 'demo-user';
+
+    if (!prisma) {
+      return NextResponse.json({ error: 'Prisma not available' }, { status: 503 });
+    }
 
     const trade = await prisma.trade.findUnique({
       where: { id },
@@ -38,6 +40,10 @@ export async function PUT(
     const userId = request.headers.get('x-user-id') || 'demo-user';
     const body = await request.json();
 
+    if (!prisma) {
+      return NextResponse.json({ error: 'Prisma not available' }, { status: 503 });
+    }
+
     const trade = await prisma.trade.findUnique({
       where: { id },
     });
@@ -47,34 +53,53 @@ export async function PUT(
     }
 
     const t: any = trade;
+
+    const parseNumber = (v: any) => {
+      if (v === undefined || v === null || v === '') return undefined;
+      const n = parseFloat(v as any);
+      return isNaN(n) ? undefined : n;
+    };
+
+    const parseInteger = (v: any) => {
+      if (v === undefined || v === null || v === '') return undefined;
+      const n = parseInt(v as any);
+      return isNaN(n) ? undefined : n;
+    };
+
+    const parseDate = (v: any) => {
+      if (!v) return undefined;
+      const d = new Date(v);
+      return isNaN(d.getTime()) ? undefined : d;
+    };
+
     const updatedTrade = await prisma.trade.update({
       where: { id },
       data: {
         pair: body.pair || t.pair,
         direction: body.direction || t.direction,
-        entryPrice: body.entryPrice ? parseFloat(body.entryPrice) : t.entryPrice,
-        exitPrice: body.exitPrice ? parseFloat(body.exitPrice) : t.exitPrice,
-        entryTime: body.entryTime ? new Date(body.entryTime) : t.entryTime,
-        exitTime: body.exitTime ? new Date(body.exitTime) : t.exitTime,
-        volume: body.volume ? parseFloat(body.volume) : t.volume,
-        stopLoss: body.stopLoss ? parseFloat(body.stopLoss) : t.stopLoss,
-        takeProfit: body.takeProfit ? parseFloat(body.takeProfit) : t.takeProfit,
-        riskAmount: body.riskAmount ? parseFloat(body.riskAmount) : t.riskAmount,
-        riskPercent: body.riskPercent ? parseFloat(body.riskPercent) : t.riskPercent,
-        riskRewardRatio: body.riskRewardRatio ? parseFloat(body.riskRewardRatio) : t.riskRewardRatio,
+        entryPrice: parseNumber(body.entryPrice) ?? t.entryPrice,
+        exitPrice: parseNumber(body.exitPrice) ?? t.exitPrice,
+        entryTime: parseDate(body.entryTime) ?? t.entryTime,
+        exitTime: parseDate(body.exitTime) ?? t.exitTime,
+        volume: parseNumber(body.volume) ?? t.volume,
+        stopLoss: parseNumber(body.stopLoss) ?? t.stopLoss,
+        takeProfit: parseNumber(body.takeProfit) ?? t.takeProfit,
+        riskAmount: parseNumber(body.riskAmount) ?? t.riskAmount,
+        riskPercent: parseNumber(body.riskPercent) ?? t.riskPercent,
+        riskRewardRatio: parseNumber(body.riskRewardRatio) ?? t.riskRewardRatio,
         account: body.account || t.account,
         broker: body.broker || t.broker,
-        accountBalance: body.accountBalance ? parseFloat(body.accountBalance) : t.accountBalance,
-        accountEquity: body.accountEquity ? parseFloat(body.accountEquity) : t.accountEquity,
-        profitLoss: body.profitLoss !== undefined ? parseFloat(body.profitLoss) : t.profitLoss,
-        profitLossPercent: body.profitLossPercent ? parseFloat(body.profitLossPercent) : t.profitLossPercent,
+        accountBalance: parseNumber(body.accountBalance) ?? t.accountBalance,
+        accountEquity: parseNumber(body.accountEquity) ?? t.accountEquity,
+        profitLoss: (body.profitLoss !== undefined && body.profitLoss !== null) ? parseNumber(body.profitLoss) ?? t.profitLoss : t.profitLoss,
+        profitLossPercent: parseNumber(body.profitLossPercent) ?? t.profitLossPercent,
         outcome: body.outcome || t.outcome,
         status: body.status || t.status,
         strategy: body.strategy || t.strategy,
         setupType: body.setupType || t.setupType,
         notes: body.notes || t.notes,
         emotionalState: body.emotionalState || t.emotionalState,
-        setupQuality: body.setupQuality ? parseInt(body.setupQuality) : t.setupQuality,
+        setupQuality: parseInteger(body.setupQuality) ?? t.setupQuality,
         whatLearned: body.whatLearned || t.whatLearned,
         mistakes: body.mistakes ? JSON.stringify(body.mistakes) : t.mistakes,
       } as any,
@@ -97,6 +122,10 @@ export async function DELETE(
   try {
     const { id } = await params;
     const userId = request.headers.get('x-user-id') || 'demo-user';
+
+    if (!prisma) {
+      return NextResponse.json({ error: 'Prisma not available' }, { status: 503 });
+    }
 
     const trade = await prisma.trade.findUnique({
       where: { id },

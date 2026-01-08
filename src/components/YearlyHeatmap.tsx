@@ -14,8 +14,22 @@ export default function YearlyHeatmap({ trades, onSelectRange }: { trades: Trade
       map[d.toISOString().slice(0, 10)] = 0;
     }
 
+    function safeDateKey(value: any): string | null {
+      if (!value) return null;
+      // Try to parse common formats and timestamps
+      const parsed = typeof value === 'number' ? new Date(value) : new Date(String(value));
+      if (!(parsed instanceof Date) || isNaN(parsed.getTime())) return null;
+      return parsed.toISOString().slice(0, 10);
+    }
+
     trades.forEach(t => {
-      const key = new Date(t.entryTime).toISOString().slice(0, 10);
+      const key = safeDateKey((t as any).entryTime);
+      if (!key) return; // skip invalid dates
+      // only include within the last 365 days (map already initialized for those keys)
+      if (typeof map[key] === 'undefined') {
+        // ignore out-of-range dates
+        return;
+      }
       map[key] = (map[key] || 0) + (t.profitLoss || 0);
     });
 

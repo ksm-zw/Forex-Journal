@@ -1,11 +1,30 @@
-import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { prisma } from '@/lib/prisma';
+import { readFileSync } from 'fs';
+import path from 'path';
 
-const prisma = new PrismaClient();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+function loadDemoTrades() {
+  const possible = [
+    path.join(process.cwd(), 'data', 'demo-trades.json'),
+    path.join(process.cwd(), 'src', 'data', 'demo-trades.json'),
+    path.join(process.cwd(), 'public', 'data', 'demo-trades.json'),
+  ];
+
+  for (const p of possible) {
+    try {
+      const raw = readFileSync(p, 'utf-8');
+      return JSON.parse(raw);
+    } catch (e) {
+      // try next
+    }
+  }
+  return [];
+}
 
 interface AnalysisRequest {
   period: 'daily' | 'weekly' | 'monthly';
@@ -42,20 +61,30 @@ export async function POST(request: NextRequest) {
     if (body.endDate) endDate = new Date(body.endDate);
 
     // Fetch trades for the period
-    const trades = await prisma.trade.findMany({
-      where: {
-        userId,
-        entryTime: {
-          gte: startDate,
-          lte: endDate,
+    let trades: any[] = [];
+
+    if (!prisma) {
+      console.warn('Prisma not available in AI analyze; falling back to demo trades');
+      trades = loadDemoTrades().filter((t: any) => {
+        const d = new Date(t.entryTime);
+        return d >= startDate && d <= endDate;
+      });
+    } else {
+      trades = await prisma.trade.findMany({
+        where: {
+          userId,
+          entryTime: {
+            gte: startDate,
+            lte: endDate,
+          },
         },
-      },
-      include: {
-        voiceNotes: true,
-        screenshots: true,
-      },
-      orderBy: { entryTime: 'asc' },
-    });
+        include: {
+          voiceNotes: true,
+          screenshots: true,
+        },
+        orderBy: { entryTime: 'asc' },
+      });
+    }
 
     if (trades.length === 0) {
       return NextResponse.json({
@@ -164,31 +193,38 @@ Keep the analysis encouraging yet brutally honest. Reference their own journal e
 
     const analysis = response.choices[0].message.content || '';
 
-    // Save the insight to database
-    const insight = await prisma.aIInsight.create({
-      data: {
-        userId,
-        type: 'period_analysis',
-        period: body.period,
-        startDate,
-        endDate,
-        content: JSON.stringify({
-          analysis,
-          metrics: {
-            totalTrades: trades.length,
-            closedTrades: closedTrades.length,
-            wins,
-            losses,
-            breakeven,
-            winRate,
-            totalPnL,
-            avgWin,
-            avgLoss,
-          },
-          tradesAnalyzed: tradesSummary.length,
-        }),
-      },
-    });
+    // Save the insight to database if available
+    let insightId: string | null = null;
+
+    if (prisma) {
+      const insight = await prisma.aIInsight.create({
+        data: {
+          userId,
+          type: 'period_analysis',
+          period: body.period,
+          startDate,
+          endDate,
+          content: JSON.stringify({
+            analysis,
+            metrics: {
+              totalTrades: trades.length,
+              closedTrades: closedTrades.length,
+              wins,
+              losses,
+              breakeven,
+              winRate,
+              totalPnL,
+              avgWin,
+              avgLoss,
+            },
+            tradesAnalyzed: tradesSummary.length,
+          }),
+        },
+      });
+      insightId = insight.id;
+    } else {
+      console.warn('Prisma not available; skipping insight persistence');
+    }
 
     return NextResponse.json({
       success: true,
@@ -207,7 +243,7 @@ Keep the analysis encouraging yet brutally honest. Reference their own journal e
         avgLoss: parseFloat(avgLoss.toFixed(2)),
       },
       analysis,
-      insightId: insight.id,
+      insightId,
     });
   } catch (error) {
     console.error('Error generating AI analysis:', error);

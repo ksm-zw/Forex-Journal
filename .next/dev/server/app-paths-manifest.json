@@ -1,9 +1,5 @@
 {
   "/analytics/page": "app/analytics/page.js",
   "/api/trades/route": "app/api/trades/route.js",
-  "/calendar/page": "app/calendar/page.js",
-  "/insights/page": "app/insights/page.js",
-  "/page": "app/page.js",
-  "/planning/page": "app/planning/page.js",
-  "/review/page": "app/review/page.js"
+  "/page": "app/page.js"
 }

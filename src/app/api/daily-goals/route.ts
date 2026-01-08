@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export async function GET(request: NextRequest) {
   try {
@@ -20,6 +18,11 @@ export async function GET(request: NextRequest) {
       };
     }
 
+    if (!prisma) {
+      console.warn('Prisma not available for daily goals; returning empty list');
+      return NextResponse.json([]);
+    }
+
     const goals = await prisma.dailyGoal.findMany({
       where,
       orderBy: { date: 'desc' },
@@ -36,6 +39,11 @@ export async function POST(request: NextRequest) {
   try {
     const userId = request.headers.get('x-user-id') || 'demo-user';
     const body = await request.json();
+
+    if (!prisma) {
+      console.warn('Prisma not available for daily goals; returning posted goal without persisting');
+      return NextResponse.json({ ...body, userId }, { status: 201 });
+    }
 
     const goal = await prisma.dailyGoal.upsert({
       where: {
