@@ -120,7 +120,9 @@ export async function POST(request: NextRequest) {
         profitLossPercent: body.profitLossPercent ? parseFloat(body.profitLossPercent) : null,
         outcome: body.outcome,
         status: body.status || 'open',
-        strategy: body.strategy,
+        // Accept either strategy_id (relation) or legacy strategy string (strategy_old)
+        strategy_id: body.strategy_id || null,
+        strategy_old: body.strategy || null,
         setupType: body.setupType,
         notes: body.notes,
         emotionalState: body.emotionalState,
