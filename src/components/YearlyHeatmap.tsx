@@ -110,15 +110,15 @@ export default function YearlyHeatmap({ trades, onSelectRange }: { trades: Trade
   }
 
   return (
-    <div className="card-glass p-4 rounded-lg">
+    <div className="card p-4 animate-fadeIn">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-bold text-gray-200 mb-4">Yearly P&L Heatmap</h3>
+        <h3 className="text-lg font-bold gradient-text mb-4">Yearly P&L Heatmap</h3>
         <div className="flex items-center gap-3">
           <div className="text-xs text-gray-400">
             {start && <span>From <strong>{start}</strong></span>} {end && <span> to <strong>{end}</strong></span>}
             {(start || end) && <button className="ml-3 text-sm text-blue-400" onClick={() => { setStart(null); setEnd(null); if (onSelectRange) onSelectRange({ start: null, end: null }); }}>Clear</button>}
           </div>
-          <button type="button" aria-pressed={monthZoom} aria-label="Toggle month zoom" className={`px-2 py-1 rounded ${monthZoom ? 'bg-indigo-600 text-white' : 'bg-transparent text-gray-300 border border-gray-700'}`} onClick={() => setMonthZoom(s => !s)}>
+          <button type="button" aria-pressed={monthZoom} aria-label="Toggle month zoom" className={`btn-compact rounded-md ${monthZoom ? 'btn-primary text-white' : 'border'}`} onClick={() => setMonthZoom(s => !s)}>
             {monthZoom ? 'Month Zoom: ON' : 'Month Zoom: OFF'}
           </button>
         </div>
@@ -144,8 +144,8 @@ export default function YearlyHeatmap({ trades, onSelectRange }: { trades: Trade
                   handleClick(d.day);
                 }
               }}
-              style={{ background: bg, width: '36px', height: '36px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--foreground)', fontSize: '11px', ...borderStyle }}
-              className={`focus:outline-none`}
+              style={{ background: bg, width: '36px', height: '36px', borderRadius: '8px', color: 'var(--foreground)', fontSize: '11px', ...borderStyle }}
+              className={`w-9 h-9 rounded-md flex items-center justify-center text-xs transition-shadow focus:outline-none`}
             >
               {showLabel ? (d.pnl > 0 ? `+$${Math.round(d.pnl)}` : `-$${Math.abs(Math.round(d.pnl))}`) : ''}
             </button>

@@ -769,13 +769,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
         return d >= s && d <= e;
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "card-glass p-4 rounded-lg",
+        className: "card p-4 animate-fadeIn",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center justify-between",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "text-lg font-bold text-gray-200 mb-4",
+                        className: "text-lg font-bold gradient-text mb-4",
                         children: "Yearly P&L Heatmap"
                     }, void 0, false, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
@@ -847,7 +847,7 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                 type: "button",
                                 "aria-pressed": monthZoom,
                                 "aria-label": "Toggle month zoom",
-                                className: `px-2 py-1 rounded ${monthZoom ? 'bg-indigo-600 text-white' : 'bg-transparent text-gray-300 border border-gray-700'}`,
+                                className: `btn-compact rounded-md ${monthZoom ? 'btn-primary text-white' : 'border'}`,
                                 onClick: ()=>setMonthZoom((s)=>!s),
                                 children: monthZoom ? 'Month Zoom: ON' : 'Month Zoom: OFF'
                             }, void 0, false, {
@@ -898,14 +898,11 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                             width: '36px',
                             height: '36px',
                             borderRadius: '8px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
                             color: 'var(--foreground)',
                             fontSize: '11px',
                             ...borderStyle
                         },
-                        className: `focus:outline-none`,
+                        className: `w-9 h-9 rounded-md flex items-center justify-center text-xs transition-shadow focus:outline-none`,
                         children: showLabel ? d.pnl > 0 ? `+$${Math.round(d.pnl)}` : `-$${Math.abs(Math.round(d.pnl))}` : ''
                     }, d.day, false, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",

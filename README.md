@@ -118,6 +118,19 @@ Be sure to follow conventional commits and keep PRs focused.
 - Deploy on Vercel, Netlify, or a container host. For Bytehost or other hosts without DB, the safe Prisma wrapper allows using demo data.
 - Set required env vars in your host dashboard: `OPENAI_API_KEY` (optional), `DATABASE_URL` (optional for real data).
 
+### Windows setup (PowerShell)
+
+If you're running on Windows, you can use the helper PowerShell script at `scripts/win-setup.ps1` to bootstrap the DB, seed demo data, and run dev/prod:
+
+- Bootstrap DB + seed: `.
+  \scripts\win-setup.ps1 -Bootstrap`
+- Start dev server: `.
+  \scripts\win-setup.ps1 -RunDev`
+- Build & start production: `.
+  \scripts\win-setup.ps1 -RunProd`
+
+More detailed Windows guidance is available at `docs/WINDOWS_SETUP.md`.
+
 ---
 
 ## ⚖️ License

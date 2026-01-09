@@ -46,7 +46,7 @@ export default function TradesList({ trades, isLoading, onTradeDeleted }: Trades
 
   if (isLoading) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-lg p-8 border border-gray-200 dark:border-slate-700">
+      <div className="card p-8">
         <div className="flex justify-center">
           <div className="animate-spin">⏳</div>
         </div>
@@ -56,7 +56,7 @@ export default function TradesList({ trades, isLoading, onTradeDeleted }: Trades
 
   if (!trades.length) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-lg p-8 border border-gray-200 dark:border-slate-700 text-center">
+      <div className="card p-8 text-center">
         <p className="text-gray-500 dark:text-gray-400">No trades recorded yet. Add your first trade to get started!</p>
       </div>
     );
@@ -70,8 +70,7 @@ export default function TradesList({ trades, isLoading, onTradeDeleted }: Trades
         {trades.map((trade) => (
           <div
             key={trade.id}
-            className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-gray-200 dark:border-slate-700 hover:shadow-md dark:hover:shadow-lg transition-shadow"
-          >
+            className="card p-4 hover:shadow-md transition-shadow"          >
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-3">

@@ -124,97 +124,37 @@ export default function QuickAddTradeForm({ onClose, onTradeAdded }: QuickAddTra
 
   return (
     <AnimatePresence>
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-          padding: '20px',
-        }}
-        onClick={onClose}
-      >
+      <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6" onClick={onClose}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           onClick={(e) => e.stopPropagation()}
-          style={{
-            backgroundColor: 'var(--card-bg)',
-            borderRadius: '16px',
-            width: '100%',
-            maxWidth: '600px',
-            maxHeight: '90vh',
-            overflowY: 'auto',
-            border: '1px solid var(--card-border)',
-          }}
+          className="card max-w-xl max-h-[90vh] overflow-y-auto"
         >
           {/* Header */}
-          <div
-            style={{
-              padding: '24px',
-              borderBottom: '1px solid var(--card-border)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              position: 'sticky',
-              top: 0,
-              backgroundColor: 'var(--card-bg)',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '20px',
-                fontWeight: 'bold',
-                margin: 0,
-                color: 'var(--foreground)',
-              }}
-            >
+          <div className="p-6 border-b sticky top-0" style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
+            <h2 className="text-lg font-bold" style={{ margin: 0, color: 'var(--foreground)' }}>
               Add New Trade
             </h2>
-            <button
-              onClick={onClose}
-              style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                color: 'var(--foreground)',
-                padding: '0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <FiX size={24} />
+            <button onClick={onClose} className="btn-compact" aria-label="Close">
+              <FiX size={20} />
             </button>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} style={{ padding: '24px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+          <form onSubmit={handleSubmit} className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               {/* Pair */}
               <div>
-                <label style={{ fontSize: '12px', color: 'var(--neutral-color)', marginBottom: '8px', display: 'block', fontWeight: '600' }}>
+                <label className="block text-xs font-semibold mb-2" style={{ color: 'var(--neutral-color)' }}>
                   Currency Pair
                 </label>
                 <select
                   name="pair"
                   value={formData.pair}
                   onChange={handleChange}
-                  style={{
-                    width: '100%',
-                    padding: '10px 12px',
-                    backgroundColor: 'var(--background)',
-                    border: '1px solid var(--card-border)',
-                    borderRadius: '8px',
-                    color: 'var(--foreground)',
-                  }}
+                  className="w-full"
                 >
                   <option>EUR/USD</option>
                   <option>GBP/USD</option>
@@ -482,26 +422,16 @@ export default function QuickAddTradeForm({ onClose, onTradeAdded }: QuickAddTra
                 placeholder="Observations about this trade..."
                 value={formData.notes}
                 onChange={handleChange}
-                style={{
-                  width: '100%',
-                  padding: '10px 12px',
-                  backgroundColor: 'var(--background)',
-                  border: '1px solid var(--card-border)',
-                  borderRadius: '8px',
-                  color: 'var(--foreground)',
-                  minHeight: '80px',
-                  resize: 'vertical',
-                  fontFamily: 'inherit',
-                }}
+                className="w-full min-h-[80px] rounded-md p-3"
               />
             </div>
 
             {/* Buttons */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="grid grid-cols-2 gap-3">
               <button
                 type="submit"
                 disabled={isLoading}
-                className="btn-primary"
+                className="btn-primary btn-compact"
                 style={{ opacity: isLoading ? 0.6 : 1 }}
               >
                 {isLoading ? 'Adding...' : 'Add Trade'}

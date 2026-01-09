@@ -1,13 +1,7 @@
-[00:00:03.601] Server  LOG     ✓ Ready in 3s
-[00:00:23.616] Server  LOG     ○ Compiling /review ...
-[00:00:24.777] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /review. Please move it to viewport export instead.
+[00:00:03.148] Server  LOG     ✓ Ready in 2.5s
+[00:00:12.713] Server  LOG     ○ Compiling / ...
+[00:00:17.279] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:00:33.848] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:50.872] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
-Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:03:01.954] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /analytics. Please move it to viewport export instead.
-Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:05:29.508] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /calendar. Please move it to viewport export instead.
-Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:05:34.473] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /planning. Please move it to viewport export instead.
+[00:00:26.425] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:30.943] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /analytics. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport

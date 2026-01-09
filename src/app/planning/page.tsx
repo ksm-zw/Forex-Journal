@@ -73,8 +73,8 @@ export default function PlanningPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Daily Goals Section */}
-          <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Today's Goals</h2>
+          <AnimatedCard className="p-6 card">
+            <h2 className="text-lg font-bold gradient-text mb-4">Today's Goals</h2>
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">{today}</p>
 
             {/* Add Goal */}
@@ -85,11 +85,11 @@ export default function PlanningPage() {
                 onChange={(e) => setCurrentGoal(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addGoal()}
                 placeholder="Add a trading goal (e.g., 'Stick to 5 trades max')"
-                className="flex-1 px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                className="flex-1 px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 outline-none"
               />
               <button
                 onClick={addGoal}
-                className="btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
+                className="btn-compact btn-primary"
               >
                 <FiPlus className="w-5 h-5" />
               </button>
@@ -137,8 +137,8 @@ export default function PlanningPage() {
           {/* Planning Section */}
           <div className="space-y-6">
             {/* Weekly Focus */}
-            <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Weekly Focus Area</h2>
+            <AnimatedCard className="p-6 card">
+              <h2 className="text-lg font-bold gradient-text mb-4">Weekly Focus Area</h2>
               <select
                 value={weeklyFocus}
                 onChange={(e) => setWeeklyFocus(e.target.value)}
@@ -156,8 +156,8 @@ export default function PlanningPage() {
                 Choose one area to focus on this week
               </p>
             </AnimatedCard>
-            <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Pre-Market Preparation</h2>
+            <AnimatedCard className="p-6 card">
+              <h2 className="text-lg font-bold gradient-text mb-4">Pre-Market Preparation</h2>
               <textarea
                 value={preMarketNotes}
                 onChange={(e) => setPreMarketNotes(e.target.value)}
@@ -167,8 +167,8 @@ export default function PlanningPage() {
             </AnimatedCard>
 
             {/* Post-Session */}
-            <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Post-Session Review Prompts</h2>
+            <AnimatedCard className="p-6 card">
+              <h2 className="text-lg font-bold gradient-text mb-4">Post-Session Review Prompts</h2>
               <ul className="space-y-2 text-xs text-gray-600 dark:text-gray-400">
                 <li>✓ Did you hit your daily goal?</li>
                 <li>✓ What was your biggest win today?</li>

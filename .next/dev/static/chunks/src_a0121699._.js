@@ -375,10 +375,10 @@ function ScreenshotUploader({ onScreenshotAdded }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700",
+            className: "card p-6",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                    className: "text-lg font-bold text-gray-900 dark:text-white mb-4",
+                    className: "text-lg font-bold gradient-text mb-4",
                     children: "Trade Setup Screenshots"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ScreenshotUploader.tsx",
@@ -460,7 +460,7 @@ function ScreenshotUploader({ onScreenshotAdded }) {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>downloadScreenshot(screenshot.url, screenshot.timestamp),
-                                                    className: "btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors",
+                                                    className: "btn-compact btn-primary",
                                                     title: "Download",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FiDownload"], {
                                                         className: "w-4 h-4"
@@ -497,7 +497,7 @@ function ScreenshotUploader({ onScreenshotAdded }) {
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "p-3 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-600",
+                                            className: "p-3 card border-t",
                                             children: editingId === screenshot.id ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 autoFocus: true,
                                                 type: "text",
@@ -510,7 +510,7 @@ function ScreenshotUploader({ onScreenshotAdded }) {
                                                     }
                                                 },
                                                 placeholder: "Add caption...",
-                                                className: "w-full px-2 py-1 border border-gray-300 dark:border-slate-600 rounded bg-white dark:bg-slate-700 text-gray-900 dark:text-white text-xs focus:ring-2 focus:ring-blue-500 outline-none"
+                                                className: "w-full px-2 py-1 border border-gray-300 dark:border-slate-600 rounded text-gray-900 dark:text-white text-xs focus:ring-2 focus:ring-blue-500 outline-none"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/ScreenshotUploader.tsx",
                                                 lineNumber: 135,
@@ -799,10 +799,10 @@ function TradeReviewPage() {
                         className: "grid grid-cols-1 lg:grid-cols-3 gap-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AnimatedCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                className: "bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700",
+                                className: "p-4 card",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-lg font-bold text-gray-900 dark:text-white mb-4",
+                                        className: "text-lg font-bold gradient-text mb-4",
                                         children: "Recent Trades"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/review/page.tsx",
@@ -867,10 +867,10 @@ function TradeReviewPage() {
                                 className: "lg:col-span-2 space-y-6",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AnimatedCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        className: "bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700",
+                                        className: "p-4 card",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                className: "text-lg font-bold text-gray-900 dark:text-white mb-4",
+                                                className: "text-lg font-bold gradient-text mb-4",
                                                 children: [
                                                     selectedTrade.pair,
                                                     " - ",
@@ -993,10 +993,10 @@ function TradeReviewPage() {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AnimatedCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        className: "bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700",
+                                        className: "p-4 card",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "text-lg font-bold text-gray-900 dark:text-white mb-4",
+                                                className: "text-lg font-bold gradient-text mb-4",
                                                 children: "Review Details"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/review/page.tsx",

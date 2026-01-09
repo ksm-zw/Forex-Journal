@@ -186,19 +186,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            style: {
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 1000,
-                padding: '20px'
-            },
+            className: "fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6",
             onClick: onClose,
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                 initial: {
@@ -214,187 +202,148 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                     scale: 0.9
                 },
                 onClick: (e)=>e.stopPropagation(),
-                style: {
-                    backgroundColor: 'var(--card-bg)',
-                    borderRadius: '16px',
-                    width: '100%',
-                    maxWidth: '600px',
-                    maxHeight: '90vh',
-                    overflowY: 'auto',
-                    border: '1px solid var(--card-border)'
-                },
+                className: "card max-w-xl max-h-[90vh] overflow-y-auto",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "p-6 border-b sticky top-0",
                         style: {
-                            padding: '24px',
-                            borderBottom: '1px solid var(--card-border)',
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            position: 'sticky',
-                            top: 0,
-                            backgroundColor: 'var(--card-bg)'
+                            backgroundColor: 'var(--card-bg)',
+                            borderColor: 'var(--card-border)'
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-lg font-bold",
                                 style: {
-                                    fontSize: '20px',
-                                    fontWeight: 'bold',
                                     margin: 0,
                                     color: 'var(--foreground)'
                                 },
                                 children: "Add New Trade"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                lineNumber: 171,
+                                lineNumber: 137,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: onClose,
-                                style: {
-                                    background: 'none',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    color: 'var(--foreground)',
-                                    padding: '0',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                },
+                                className: "btn-compact",
+                                "aria-label": "Close",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FiX"], {
-                                    size: 24
+                                    size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 141,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                lineNumber: 181,
+                                lineNumber: 140,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                        lineNumber: 159,
+                        lineNumber: 136,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                         onSubmit: handleSubmit,
-                        style: {
-                            padding: '24px'
-                        },
+                        className: "p-6",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                style: {
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '16px',
-                                    marginBottom: '16px'
-                                },
+                                className: "grid grid-cols-1 md:grid-cols-2 gap-4 mb-4",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "block text-xs font-semibold mb-2",
                                                 style: {
-                                                    fontSize: '12px',
-                                                    color: 'var(--neutral-color)',
-                                                    marginBottom: '8px',
-                                                    display: 'block',
-                                                    fontWeight: '600'
+                                                    color: 'var(--neutral-color)'
                                                 },
                                                 children: "Currency Pair"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 150,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                 name: "pair",
                                                 value: formData.pair,
                                                 onChange: handleChange,
-                                                style: {
-                                                    width: '100%',
-                                                    padding: '10px 12px',
-                                                    backgroundColor: 'var(--background)',
-                                                    border: '1px solid var(--card-border)',
-                                                    borderRadius: '8px',
-                                                    color: 'var(--foreground)'
-                                                },
+                                                className: "w-full",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "EUR/USD"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 219,
+                                                        lineNumber: 159,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "GBP/USD"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 220,
+                                                        lineNumber: 160,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "USD/JPY"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 221,
+                                                        lineNumber: 161,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "AUD/USD"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 222,
+                                                        lineNumber: 162,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "USD/CAD"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 223,
+                                                        lineNumber: 163,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "NZD/USD"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 224,
+                                                        lineNumber: 164,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "USD/CHF"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 225,
+                                                        lineNumber: 165,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "GOLD"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 226,
+                                                        lineNumber: 166,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "SP500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 227,
+                                                        lineNumber: 167,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 206,
+                                                lineNumber: 153,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 202,
+                                        lineNumber: 149,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -410,7 +359,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Direction"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 233,
+                                                lineNumber: 173,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -431,7 +380,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "LONG 📈"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 249,
+                                                        lineNumber: 189,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -439,19 +388,19 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "SHORT 📉"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 250,
+                                                        lineNumber: 190,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 236,
+                                                lineNumber: 176,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 232,
+                                        lineNumber: 172,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -467,7 +416,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Entry Price"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 256,
+                                                lineNumber: 196,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -488,13 +437,13 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 259,
+                                                lineNumber: 199,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 255,
+                                        lineNumber: 195,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -510,7 +459,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Stop Loss"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 280,
+                                                lineNumber: 220,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -530,13 +479,13 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 283,
+                                                lineNumber: 223,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 279,
+                                        lineNumber: 219,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -552,7 +501,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Take Profit"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 303,
+                                                lineNumber: 243,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -572,13 +521,13 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 306,
+                                                lineNumber: 246,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 302,
+                                        lineNumber: 242,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -594,7 +543,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Volume (Lots)"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 326,
+                                                lineNumber: 266,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -614,13 +563,13 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 329,
+                                                lineNumber: 269,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 325,
+                                        lineNumber: 265,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -636,7 +585,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Risk %"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 349,
+                                                lineNumber: 289,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -656,13 +605,13 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 352,
+                                                lineNumber: 292,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 348,
+                                        lineNumber: 288,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -678,7 +627,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Account"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 372,
+                                                lineNumber: 312,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -698,33 +647,33 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "Personal"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 388,
+                                                        lineNumber: 328,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "PropFirm"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 389,
+                                                        lineNumber: 329,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Demo"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 390,
+                                                        lineNumber: 330,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 375,
+                                                lineNumber: 315,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 371,
+                                        lineNumber: 311,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -740,7 +689,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Setup Type"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 396,
+                                                lineNumber: 336,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -760,54 +709,54 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "Breakout"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 412,
+                                                        lineNumber: 352,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Pullback"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 413,
+                                                        lineNumber: 353,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Reversal"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 414,
+                                                        lineNumber: 354,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Scalp"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 415,
+                                                        lineNumber: 355,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Swing"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 416,
+                                                        lineNumber: 356,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "News"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 417,
+                                                        lineNumber: 357,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 399,
+                                                lineNumber: 339,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 395,
+                                        lineNumber: 335,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -823,7 +772,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Emotional State"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 423,
+                                                lineNumber: 363,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -844,7 +793,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "😌 Calm"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 439,
+                                                        lineNumber: 379,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -852,7 +801,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "🎯 Focused"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 440,
+                                                        lineNumber: 380,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -860,7 +809,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "💪 Confident"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 441,
+                                                        lineNumber: 381,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -868,7 +817,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "⚡ Rushed"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 442,
+                                                        lineNumber: 382,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -876,7 +825,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "😤 Frustrated"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 443,
+                                                        lineNumber: 383,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -884,19 +833,19 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "😰 Anxious"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 444,
+                                                        lineNumber: 384,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 426,
+                                                lineNumber: 366,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 422,
+                                        lineNumber: 362,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -912,7 +861,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                 children: "Setup Quality"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 450,
+                                                lineNumber: 390,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -933,7 +882,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "⭐ 1"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 466,
+                                                        lineNumber: 406,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -941,7 +890,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "⭐⭐ 2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 467,
+                                                        lineNumber: 407,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -949,7 +898,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "⭐⭐⭐ 3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 468,
+                                                        lineNumber: 408,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -957,7 +906,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "⭐⭐⭐⭐ 4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 469,
+                                                        lineNumber: 409,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -965,25 +914,25 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                                         children: "⭐⭐⭐⭐⭐ 5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                        lineNumber: 470,
+                                                        lineNumber: 410,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                                lineNumber: 453,
+                                                lineNumber: 393,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 449,
+                                        lineNumber: 389,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                lineNumber: 200,
+                                lineNumber: 147,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1002,7 +951,7 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                         children: "Trade Notes"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 477,
+                                        lineNumber: 417,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1010,46 +959,32 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                         placeholder: "Observations about this trade...",
                                         value: formData.notes,
                                         onChange: handleChange,
-                                        style: {
-                                            width: '100%',
-                                            padding: '10px 12px',
-                                            backgroundColor: 'var(--background)',
-                                            border: '1px solid var(--card-border)',
-                                            borderRadius: '8px',
-                                            color: 'var(--foreground)',
-                                            minHeight: '80px',
-                                            resize: 'vertical',
-                                            fontFamily: 'inherit'
-                                        }
+                                        className: "w-full min-h-[80px] rounded-md p-3"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 480,
+                                        lineNumber: 420,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                lineNumber: 476,
+                                lineNumber: 416,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                style: {
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '12px'
-                                },
+                                className: "grid grid-cols-2 gap-3",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         type: "submit",
                                         disabled: isLoading,
-                                        className: "btn-primary",
+                                        className: "btn-primary btn-compact",
                                         style: {
                                             opacity: isLoading ? 0.6 : 1
                                         },
                                         children: isLoading ? 'Adding...' : 'Add Trade'
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 501,
+                                        lineNumber: 431,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1064,25 +999,25 @@ function QuickAddTradeForm({ onClose, onTradeAdded }) {
                                         children: "Cancel"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                        lineNumber: 509,
+                                        lineNumber: 439,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                                lineNumber: 500,
+                                lineNumber: 430,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                        lineNumber: 199,
+                        lineNumber: 146,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/QuickAddTradeForm.tsx",
-                lineNumber: 143,
+                lineNumber: 128,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
@@ -1118,64 +1053,46 @@ function DashboardHeader() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+                className: "flex items-center justify-between px-4 py-3 border-b",
                 style: {
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '10px 16px',
-                    borderBottom: '1px solid var(--card-border)',
-                    backgroundColor: 'transparent',
-                    minHeight: '56px'
+                    borderColor: 'var(--card-border)'
                 },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px'
-                        },
+                        className: "flex items-center gap-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                style: {
-                                    fontSize: '18px',
-                                    fontWeight: '700',
-                                    color: 'var(--foreground)',
-                                    margin: 0
-                                },
+                                className: "text-lg font-bold gradient-text",
                                 children: "Backtesting Dashboard"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                lineNumber: 24,
+                                lineNumber: 14,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "text-sm",
                                 style: {
-                                    fontSize: '13px',
                                     color: 'var(--neutral-color)'
                                 },
                                 children: "Performance & calendar overview"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                lineNumber: 34,
+                                lineNumber: 15,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                        lineNumber: 23,
+                        lineNumber: 13,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '8px'
-                        },
+                        className: "flex items-center gap-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "btn-compact w-9 h-9 rounded-md",
+                                className: "btn-compact w-9 h-9 rounded-md border",
                                 style: {
-                                    border: '1px solid var(--card-border)',
+                                    borderColor: 'var(--card-border)',
                                     color: 'var(--foreground)'
                                 },
                                 "aria-label": "Notifications",
@@ -1183,18 +1100,18 @@ function DashboardHeader() {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 24,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                lineNumber: 47,
+                                lineNumber: 19,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "btn-compact w-9 h-9 rounded-md",
+                                className: "btn-compact w-9 h-9 rounded-md border",
                                 style: {
-                                    border: '1px solid var(--card-border)',
+                                    borderColor: 'var(--card-border)',
                                     color: 'var(--foreground)'
                                 },
                                 "aria-label": "Settings",
@@ -1202,28 +1119,28 @@ function DashboardHeader() {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                lineNumber: 55,
+                                lineNumber: 27,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>setShowAddTrade(true),
                                 "aria-label": "Add trade",
-                                className: "btn-compact btn-primary rounded-md w-10 h-10 flex items-center justify-center",
+                                className: "btn-primary w-10 h-10 rounded-md flex items-center justify-center",
                                 children: "+"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                                lineNumber: 64,
+                                lineNumber: 35,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                        lineNumber: 39,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1236,7 +1153,7 @@ function DashboardHeader() {
                 onClose: ()=>setShowAddTrade(false)
             }, void 0, false, {
                 fileName: "[project]/src/components/DashboardHeaderV3.tsx",
-                lineNumber: 75,
+                lineNumber: 46,
                 columnNumber: 9
             }, this)
         ]

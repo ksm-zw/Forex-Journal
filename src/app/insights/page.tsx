@@ -222,11 +222,11 @@ export default function InsightsPage() {
               return (
                 <AnimatedCard key={idx} className={`${bgColor} border p-6`}>
                   <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-lg ${insight.color} bg-white dark:bg-slate-800`}>
+                    <div className={`p-3 rounded-lg ${insight.color} card`}>
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                      <h3 className="text-lg font-bold gradient-text mb-1">
                         {insight.title}
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300">
@@ -239,7 +239,7 @@ export default function InsightsPage() {
             })}
           </div>
         ) : (
-          <AnimatedCard className="bg-white dark:bg-slate-800 p-12 text-center border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="p-12 text-center card">
             <p className="text-gray-600 dark:text-gray-400 mb-2">Add more trades to get AI-powered insights</p>
             <p className="text-sm text-gray-500 dark:text-gray-500">The more data you have, the better insights we can provide</p>
           </AnimatedCard>
@@ -247,8 +247,8 @@ export default function InsightsPage() {
 
         {/* Weekly Summary */}
         {trades.length > 0 && (
-          <AnimatedCard className="mt-8 bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">This Week's Summary</h2>
+          <AnimatedCard className="mt-8 p-6 card">
+            <h2 className="text-lg font-bold gradient-text mb-4">This Week's Summary</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-gray-50 dark:bg-slate-700 p-4 rounded-lg">
