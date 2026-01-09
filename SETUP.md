@@ -181,23 +181,47 @@ npx prisma db push
 npm run dev
 ```
 
-#### Option C: Helper Script (Recommended)
+#### Option C: Helper Scripts (Recommended)
 
-Use the included PowerShell helper script to simplify setup:
+Use the included helper scripts to simplify setup for your platform.
+
+- Windows (PowerShell):
 
 ```powershell
 # Navigate to repo root
 cd C:\path\to\Forex-Journal
 
-# Run the helper script (adjust ExecutionPolicy if needed)
-powershell -ExecutionPolicy Bypass -File scripts/win-setup.ps1
+# Bootstrap (create .env, push DB, seed) and start dev server
+.\scripts\win-setup.ps1 -Bootstrap
 
-# Choose from menu:
-# 1 → Full setup (install, db push, seed)
-# 2 → Dev server
-# 3 → Production build
-# 4 → Build only
+# Or start dev server only
+.\scripts\win-setup.ps1 -RunDev
+
+# Build & start production
+.\scripts\win-setup.ps1 -RunProd
 ```
+
+- macOS / Linux (bash):
+
+```bash
+# Bootstrap and start dev server (default)
+./scripts/local-setup.sh
+
+# Run dev explicitly
+./scripts/local-setup.sh dev
+
+# Build and run production server
+./scripts/local-setup.sh prod
+```
+
+These scripts will:
+- create `.env.local` (from `.env.local.example`) if missing
+- install dependencies (`npm ci`)
+- push Prisma schema to a local SQLite database
+- seed demo user & demo trades
+- start the dev server (or build+start production)
+
+Note: AI features remain optional — set `OPENAI_API_KEY` in `.env.local` if you want AI analysis to work. If not set, the app still runs and CI verifies builds succeed without the key.
 
 ---
 
