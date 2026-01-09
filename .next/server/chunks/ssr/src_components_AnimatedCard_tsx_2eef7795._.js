@@ -1,3 +1,0 @@
-module.exports=[71297,a=>{"use strict";var b=a.i(87924),c=a.i(46271);function d({children:a,className:d="",...e}){return(0,b.jsx)(c.motion.div,{initial:{opacity:0,y:8,scale:.995},whileInView:{opacity:1,y:0,scale:1},whileHover:{y:-4},whileTap:{scale:.995},viewport:{once:!0,amount:.15},transition:{type:"spring",stiffness:260,damping:22},className:`card ${d}`,...e,children:a})}a.s(["default",()=>d])}];
-
-//# sourceMappingURL=src_components_AnimatedCard_tsx_2eef7795._.js.map

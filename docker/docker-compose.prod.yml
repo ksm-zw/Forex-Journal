@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - --providers.file.filename=/etc/traefik/dynamic.yml
+      - --providers.docker=true
+      - --entryPoints.web.address=:80
+      - --entryPoints.websecure.address=:443
+      - --certificatesResolvers.myresolver.acme.tlsChallenge=true
+      - --certificatesResolvers.myresolver.acme.email=${LETSENCRYPT_EMAIL}
+      - --certificatesResolvers.myresolver.acme.storage=/acme.json
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./docker/traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./docker/traefik/dynamic.yml:/etc/traefik/dynamic.yml:ro
+      - ./docker/traefik/acme.json:/acme.json
+    networks:
+      - web
+    restart: unless-stopped
+
+  app:
+    build: .
+    image: forex-journal:latest
+    env_file: .env.production
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.forex.rule=Host(`example.com`)"
+      - "traefik.http.routers.forex.entrypoints=websecure"
+      - "traefik.http.routers.forex.tls=true"
+      - "traefik.http.routers.forex.tls.certresolver=myresolver"
+      - "traefik.http.services.forex.loadbalancer.server.port=3000"
+    depends_on:
+      - postgres
+    networks:
+      - web
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15
+    env_file: .env.production
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - web
+    restart: unless-stopped
+
+networks:
+  web:
+    external: false
+
+volumes:
+  postgres_data:

@@ -127,8 +127,8 @@ export default function TradeReviewPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Trades List */}
-          <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Trades</h2>
+          <AnimatedCard className="p-4 card">
+            <h2 className="text-lg font-bold gradient-text mb-4">Recent Trades</h2>
             <div className="space-y-2 max-h-96 overflow-y-auto">
               {trades.length > 0 ? (
                 trades.map(trade => (
@@ -167,8 +167,8 @@ export default function TradeReviewPage() {
           {selectedTrade ? (
             <div className="lg:col-span-2 space-y-6">
               {/* Trade Summary */}
-              <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+              <AnimatedCard className="p-4 card">
+                <h2 className="text-lg font-bold gradient-text mb-4">
                   {selectedTrade.pair} - {selectedTrade.direction}
                 </h2>
                 <div className="grid grid-cols-2 gap-4 text-sm">
@@ -200,8 +200,8 @@ export default function TradeReviewPage() {
               </AnimatedCard>
 
               {/* Review Fields */}
-              <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Review Details</h3>
+              <AnimatedCard className="p-4 card">
+                <h3 className="text-lg font-bold gradient-text mb-4">Review Details</h3>
 
                 {/* What I Learned */}
                 <div className="mb-4">

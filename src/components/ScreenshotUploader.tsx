@@ -73,8 +73,8 @@ export default function ScreenshotUploader({ onScreenshotAdded }: ScreenshotUplo
 
   return (
     <div className="space-y-4">
-      <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Trade Setup Screenshots</h3>
+      <div className="card p-6">
+        <h3 className="text-lg font-bold gradient-text mb-4">Trade Setup Screenshots</h3>
 
         {/* Upload Area */}
         <div
@@ -115,7 +115,7 @@ export default function ScreenshotUploader({ onScreenshotAdded }: ScreenshotUplo
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-between p-2">
                     <button
                       onClick={() => downloadScreenshot(screenshot.url, screenshot.timestamp)}
-                      className="btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
+                      className="btn-compact btn-primary"
                       title="Download"
                     >
                       <FiDownload className="w-4 h-4" />
@@ -130,7 +130,7 @@ export default function ScreenshotUploader({ onScreenshotAdded }: ScreenshotUplo
                   </div>
 
                   {/* Caption */}
-                  <div className="p-3 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-600">
+                  <div className="p-3 card border-t">
                     {editingId === screenshot.id ? (
                       <input
                         autoFocus
@@ -144,7 +144,7 @@ export default function ScreenshotUploader({ onScreenshotAdded }: ScreenshotUplo
                           }
                         }}
                         placeholder="Add caption..."
-                        className="w-full px-2 py-1 border border-gray-300 dark:border-slate-600 rounded bg-white dark:bg-slate-700 text-gray-900 dark:text-white text-xs focus:ring-2 focus:ring-blue-500 outline-none"
+                        className="w-full px-2 py-1 border border-gray-300 dark:border-slate-600 rounded text-gray-900 dark:text-white text-xs focus:ring-2 focus:ring-blue-500 outline-none"
                       />
                     ) : (
                       <p

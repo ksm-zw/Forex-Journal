@@ -93,13 +93,13 @@ html, body {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
-  padding: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
   border-color: var(--purple-base);
-  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.12);
   transform: translateY(-2px);
 }
 
@@ -122,35 +122,51 @@ html, body {
 
 /* Compact button variant used across the app for tighter UIs */
 .btn-compact {
-  padding: 6px 10px;
+  padding: 4px 8px;
   border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   cursor: pointer;
-  border: none;
+  border: 1px solid var(--card-border);
+  background: transparent;
+  color: var(--foreground);
+}
+
+/* Slightly subtler primary hover for less jarring motion */
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.32);
 }
 
 /* Calendar specific styles to keep the grid compact and consistent */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
+  gap: 4px;
 }
 
 .calendar-day {
-  height: 48px;
-  min-height: 44px;
-  padding: 6px 8px;
-  border-radius: 10px;
+  height: 40px;
+  min-height: 36px;
+  padding: 4px 6px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
 }
 
 .calendar-legend { font-size: 12px; }
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 640px) {
+  .calendar-grid { gap: 3px; }
+  .calendar-day { height: 36px; min-height: 32px; font-size: 11px; padding: 3px 6px; }
+  .card { padding: 10px; }
+  .btn-compact { padding: 3px 6px; font-size: 11px; }
+} 
 
 .btn-primary:active {
   transform: translateY(0);

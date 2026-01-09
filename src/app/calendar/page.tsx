@@ -104,38 +104,40 @@ export default function CalendarPage() {
 
       <main className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Trading Calendar</h1>
+          <h1 className="text-2xl font-bold gradient-text mb-2">Trading Calendar</h1>
           <p className="text-gray-600 dark:text-gray-400">View your trades by day</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Calendar */}
-          <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="lg:col-span-2 p-6 animate-slideUp">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+              <h2 className="text-xl font-bold gradient-text">
                 {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}
               </h2>
               <div className="flex gap-2">
                 <button
                   onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
-                  className="btn-compact bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors rounded-md"
+                  className="btn-compact rounded-md"
+                  style={{ border: '1px solid var(--card-border)' }}
                 >
                   ← Prev
                 </button>
                 <button
                   onClick={() => setCurrentMonth(new Date())}
-                  className="btn-compact bg-blue-600 hover:bg-blue-700 text-white transition-colors rounded-md"
+                  className="btn-compact btn-primary"
                 >
                   Today
                 </button>
                 <button
                   onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
-                  className="btn-compact bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors rounded-md"
+                  className="btn-compact rounded-md"
+                  style={{ border: '1px solid var(--card-border)' }}
                 >
                   Next →
                 </button>
               </div>
-            </div>
+            </div> 
 
             {/* Day Headers */}
             <div className="grid grid-cols-7 gap-2 mb-2">
@@ -161,9 +163,9 @@ export default function CalendarPage() {
                   <button
                     key={day}
                     onClick={() => setSelectedDate(isSelected ? null : date)}
-                    className={`calendar-day rounded-lg border-2 transition-colors font-semibold ${
+                    className={`calendar-day rounded-lg border-2 transition-colors font-semibold animate-fadeIn ${
                       isSelected
-                        ? 'bg-blue-600 border-blue-600 text-white dark:bg-blue-700 dark:border-blue-700'
+                        ? 'bg-purple-600 border-purple-600 text-white dark:bg-purple-700 dark:border-purple-700'
                         : stats.count > 0
                         ? stats.pnl >= 0
                           ? 'bg-green-100 border-green-300 dark:bg-green-900/30 dark:border-green-700 text-green-900 dark:text-green-100'
@@ -200,15 +202,15 @@ export default function CalendarPage() {
           </AnimatedCard>
 
           {/* Selected Date Trades */}
-          <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700 h-fit">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+          <AnimatedCard className="p-6 animate-slideUp">
+            <h2 className="text-lg font-bold gradient-text mb-4">
               {selectedDate ? new Date(selectedDate + 'T00:00:00').toLocaleDateString() : 'Select a date'}
             </h2>
 
             {selectedDateTrades.length > 0 ? (
               <div className="space-y-3">
                 {selectedDateTrades.map(trade => (
-                  <div key={trade.id} className="bg-gray-50 dark:bg-slate-700 p-3 rounded-lg">
+                  <div key={trade.id} className="card p-3">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-semibold text-gray-900 dark:text-white text-sm">{trade.pair}</span>
                       <span className={`text-xs font-semibold px-2 py-1 rounded ${
