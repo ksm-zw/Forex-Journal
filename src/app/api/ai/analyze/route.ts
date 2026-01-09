@@ -4,9 +4,10 @@ import { prisma } from '@/lib/prisma';
 import { readFileSync } from 'fs';
 import path from 'path';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+function getOpenAI() {
+  if (!process.env.OPENAI_API_KEY) return null;
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 function loadDemoTrades() {
   const possible = [
@@ -179,6 +180,11 @@ Keep the analysis encouraging yet brutally honest. Reference their own journal e
 `;
 
     // Call OpenAI API
+    const openai = getOpenAI();
+    if (!openai) {
+      return NextResponse.json({ error: 'OpenAI API key not configured' }, { status: 400 });
+    }
+
     const response = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [

@@ -4,9 +4,11 @@ import OpenAI from 'openai';
 import { Readable } from 'stream';
 
 const prisma = new PrismaClient();
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+
+function getOpenAI() {
+  if (!process.env.OPENAI_API_KEY) return null;
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,13 +35,16 @@ export async function POST(request: NextRequest) {
     // Transcribe if requested and API key available
     if (transcribe && process.env.OPENAI_API_KEY) {
       try {
-        const file = new File([buffer], 'audio.webm', { type: 'audio/webm' });
-        const response = await openai.audio.transcriptions.create({
-          file: file,
-          model: 'whisper-1',
-          language: 'en',
-        });
-        transcript = response.text;
+        const openai = getOpenAI();
+        if (openai) {
+          const file = new File([buffer], 'audio.webm', { type: 'audio/webm' });
+          const response = await openai.audio.transcriptions.create({
+            file: file,
+            model: 'whisper-1',
+            language: 'en',
+          });
+          transcript = response.text;
+        }
       } catch (transcribeError) {
         console.error('Transcription error:', transcribeError);
         // Continue without transcript
