@@ -249,9 +249,11 @@ npx prisma db push
 
 ---
 
-## Optional: AI Features
+## Optional: AI Features (app & CI-safe)
 
-To enable AI-driven analysis and summaries, set an OpenAI API key.
+AI features are completely optional. The app and CI are designed to work without an OpenAI API key — builds and tests will succeed even when `OPENAI_API_KEY` is not set (we include a CI workflow that validates this).
+
+If you'd like to enable AI-driven analysis and summaries, follow these steps:
 
 ### 1. Get a key
 
@@ -269,6 +271,8 @@ OPENAI_API_KEY="sk-xxx..."
 - Go to **Insights**, **Summaries**, or **Analytics** pages
 - Click "Analyze with AI" or similar buttons
 - Features require an active, funded OpenAI account
+
+Note: If `OPENAI_API_KEY` is missing, the AI API routes return a friendly error and other app functionality continues to work as normal.
 
 ---
 
