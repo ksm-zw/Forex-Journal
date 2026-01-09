@@ -115,7 +115,7 @@ export default function ScreenshotUploader({ onScreenshotAdded }: ScreenshotUplo
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-between p-2">
                     <button
                       onClick={() => downloadScreenshot(screenshot.url, screenshot.timestamp)}
-                      className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                      className="btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
                       title="Download"
                     >
                       <FiDownload className="w-4 h-4" />

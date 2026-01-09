@@ -80,13 +80,13 @@ export default function StrategyDetailPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="font-semibold mb-4">Entry Models</h3>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                  <button className="btn-primary">
                     Add Entry Model
                   </button>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-4">Timeframe Roles</h3>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                  <button className="btn-primary">
                     Add Timeframe Role
                   </button>
                 </div>

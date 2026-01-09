@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import DashboardHeader from '@/components/DashboardHeader';
+import DashboardHeaderV3 from '@/components/DashboardHeaderV3';
 import { useTheme } from '@/context/ThemeContext';
 import { Toaster } from 'react-hot-toast';
 import { FiTrendingUp, FiAlertCircle, FiTarget, FiZap } from 'react-icons/fi';
@@ -29,7 +29,7 @@ interface Insight {
 }
 
 export default function InsightsPage() {
-  const { theme, toggleTheme } = useTheme();
+  // header v3 used across app
   const [mounted, setMounted] = useState(false);
   const [trades, setTrades] = useState<Trade[]>([]);
   const [insights, setInsights] = useState<Insight[]>([]);
@@ -199,7 +199,7 @@ export default function InsightsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
-      <DashboardHeader onThemeToggle={toggleTheme} currentTheme={theme} />
+      <DashboardHeaderV3 />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-8">

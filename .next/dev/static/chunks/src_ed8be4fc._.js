@@ -456,7 +456,7 @@ function PlanningPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: addGoal,
-                                                className: "bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors",
+                                                className: "btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FiPlus"], {
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
@@ -546,7 +546,7 @@ function PlanningPage() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: saveGoals,
-                                        className: "w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-colors",
+                                        className: "w-full btn-primary disabled:opacity-50 transition-colors text-center",
                                         children: "Save Daily Goals"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/planning/page.tsx",

@@ -93,7 +93,7 @@ html, body {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
-  padding: 20px;
+  padding: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -107,7 +107,7 @@ html, body {
 .btn-primary {
   background: linear-gradient(135deg, var(--purple-base) 0%, var(--purple-dark) 100%);
   color: white;
-  padding: 12px 24px;
+  padding: 10px 18px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -119,6 +119,38 @@ html, body {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
 }
+
+/* Compact button variant used across the app for tighter UIs */
+.btn-compact {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Calendar specific styles to keep the grid compact and consistent */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day {
+  height: 48px;
+  min-height: 44px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.calendar-legend { font-size: 12px; }
 
 .btn-primary:active {
   transform: translateY(0);

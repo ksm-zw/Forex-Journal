@@ -128,7 +128,7 @@ export default function VoiceRecorder({ onRecordingSaved }: VoiceRecorderProps) 
                 <div className="flex items-center gap-3 flex-1">
                   <button
                     onClick={() => setPlayingId(playingId === recording.id ? null : recording.id)}
-                    className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                    className="btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
                   >
                     <FiPlay className="w-4 h-4" />
                   </button>

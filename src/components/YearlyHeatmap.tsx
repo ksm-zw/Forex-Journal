@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 
 interface Trade { entryTime: string; profitLoss?: number }
 
@@ -41,9 +41,18 @@ export default function YearlyHeatmap({ trades, onSelectRange }: { trades: Trade
   const [start, setStart] = useState<string | null>(null);
   const [end, setEnd] = useState<string | null>(null);
 
+  // Avoid calling parent's setter on initial mount to prevent update loops
+  const initialRef = useRef(true);
   useEffect(() => {
-    if (onSelectRange) onSelectRange({ start, end });
-  }, [start, end, onSelectRange]);
+    if (!onSelectRange) return;
+    if (initialRef.current) {
+      initialRef.current = false;
+      return;
+    }
+    onSelectRange({ start, end });
+  // intentionally exclude onSelectRange from deps to rely on stable setter passed from parent
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start, end]);
 
   const [monthZoom, setMonthZoom] = useState(false);
 

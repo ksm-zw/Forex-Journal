@@ -38,11 +38,14 @@ export default function QuickAddTradeForm({ onClose, onTradeAdded }: QuickAddTra
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    const { name, value } = e.target as HTMLInputElement;
+    setFormData(prev => {
+      if ((prev as any)[name] === value) return prev;
+      return ({
+        ...prev,
+        [name]: value,
+      });
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -498,35 +501,16 @@ export default function QuickAddTradeForm({ onClose, onTradeAdded }: QuickAddTra
               <button
                 type="submit"
                 disabled={isLoading}
-                style={{
-                  background: 'linear-gradient(135deg, var(--purple-base) 0%, var(--purple-dark) 100%)',
-                  color: 'white',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  border: 'none',
-                  cursor: isLoading ? 'not-allowed' : 'pointer',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                  transition: 'all 0.3s ease',
-                  opacity: isLoading ? 0.6 : 1,
-                }}
+                className="btn-primary"
+                style={{ opacity: isLoading ? 0.6 : 1 }}
               >
                 {isLoading ? 'Adding...' : 'Add Trade'}
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                style={{
-                  background: 'transparent',
-                  color: 'var(--foreground)',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  border: '1px solid var(--card-border)',
-                  cursor: 'pointer',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                  transition: 'all 0.3s ease',
-                }}
+                className="btn-compact"
+                style={{ background: 'transparent', border: '1px solid var(--card-border)', color: 'var(--foreground)' }}
               >
                 Cancel
               </button>

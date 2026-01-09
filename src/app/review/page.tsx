@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import DashboardHeader from '@/components/DashboardHeader';
+import DashboardHeaderV3 from '@/components/DashboardHeaderV3';
 import VoiceRecorder from '@/components/VoiceRecorder';
 import ScreenshotUploader from '@/components/ScreenshotUploader';
 import { useTheme } from '@/context/ThemeContext';
@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 import AnimatedCard from '@/components/AnimatedCard';
 
 export default function TradeReviewPage() {
-  const { theme, toggleTheme } = useTheme();
+  // useTheme retained for potential theme-dependent content, header uses v3
   const [mounted, setMounted] = useState(false);
   const [selectedTradeId, setSelectedTradeId] = useState<string | null>(null);
   const [trades, setTrades] = useState<any[]>([]);
@@ -117,7 +117,7 @@ export default function TradeReviewPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
-      <DashboardHeader onThemeToggle={toggleTheme} currentTheme={theme} />
+      <DashboardHeaderV3 />
 
       <main className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="mb-8">
@@ -127,7 +127,7 @@ export default function TradeReviewPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Trades List */}
-          <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
+          <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Trades</h2>
             <div className="space-y-2 max-h-96 overflow-y-auto">
               {trades.length > 0 ? (
@@ -167,7 +167,7 @@ export default function TradeReviewPage() {
           {selectedTrade ? (
             <div className="lg:col-span-2 space-y-6">
               {/* Trade Summary */}
-              <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
+              <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
                   {selectedTrade.pair} - {selectedTrade.direction}
                 </h2>
@@ -200,7 +200,7 @@ export default function TradeReviewPage() {
               </AnimatedCard>
 
               {/* Review Fields */}
-              <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
+              <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Review Details</h3>
 
                 {/* What I Learned */}
@@ -281,13 +281,13 @@ export default function TradeReviewPage() {
 
               <button
                 onClick={saveReview}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
+                className="w-full btn-primary disabled:opacity-50 transition-colors text-center"
               >
                 Save Review
               </button>
             </div>
           ) : (
-            <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-12 text-center border border-gray-200 dark:border-slate-700">
+            <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-6 text-center border border-gray-200 dark:border-slate-700">
               <p className="text-gray-600 dark:text-gray-400">Select a trade to review</p>
             </AnimatedCard>
           )}

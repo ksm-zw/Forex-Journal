@@ -420,7 +420,7 @@ function CalendarPage() {
                         className: "mb-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-3xl font-bold text-gray-900 dark:text-white mb-2",
+                                className: "text-2xl font-bold text-gray-900 dark:text-white mb-2",
                                 children: "Trading Calendar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/calendar/page.tsx",
@@ -445,10 +445,10 @@ function CalendarPage() {
                         className: "grid grid-cols-1 lg:grid-cols-3 gap-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AnimatedCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                className: "lg:col-span-2 bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700",
+                                className: "lg:col-span-2 bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center justify-between mb-6",
+                                        className: "flex items-center justify-between mb-4",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                 className: "text-lg font-bold text-gray-900 dark:text-white",
@@ -466,7 +466,7 @@ function CalendarPage() {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                         onClick: ()=>setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1)),
-                                                        className: "px-3 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors",
+                                                        className: "btn-compact bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors rounded-md",
                                                         children: "← Prev"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/calendar/page.tsx",
@@ -475,7 +475,7 @@ function CalendarPage() {
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                         onClick: ()=>setCurrentMonth(new Date()),
-                                                        className: "px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors text-sm font-semibold",
+                                                        className: "btn-compact bg-blue-600 hover:bg-blue-700 text-white transition-colors rounded-md",
                                                         children: "Today"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/calendar/page.tsx",
@@ -484,7 +484,7 @@ function CalendarPage() {
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                         onClick: ()=>setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1)),
-                                                        className: "px-3 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors",
+                                                        className: "btn-compact bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors rounded-md",
                                                         children: "Next →"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/calendar/page.tsx",
@@ -514,7 +514,7 @@ function CalendarPage() {
                                             'Fri',
                                             'Sat'
                                         ].map((day)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-center font-semibold text-gray-700 dark:text-gray-300 text-xs p-2",
+                                                className: "text-center font-semibold text-gray-700 dark:text-gray-300 text-xs py-1",
                                                 children: day
                                             }, day, false, {
                                                 fileName: "[project]/src/app/calendar/page.tsx",
@@ -527,11 +527,11 @@ function CalendarPage() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "grid grid-cols-7 gap-2",
+                                        className: "calendar-grid",
                                         children: calendarDays.map((day, idx)=>{
                                             if (day === null) {
                                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "aspect-square"
+                                                    className: "calendar-day"
                                                 }, `empty-${idx}`, false, {
                                                     fileName: "[project]/src/app/calendar/page.tsx",
                                                     lineNumber: 154,
@@ -543,28 +543,36 @@ function CalendarPage() {
                                             const isSelected = selectedDate === date;
                                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>setSelectedDate(isSelected ? null : date),
-                                                className: `aspect-square p-2 rounded-lg border-2 transition-colors text-xs font-semibold ${isSelected ? 'bg-blue-600 border-blue-600 text-white dark:bg-blue-700 dark:border-blue-700' : stats.count > 0 ? stats.pnl >= 0 ? 'bg-green-100 border-green-300 dark:bg-green-900/30 dark:border-green-700 text-green-900 dark:text-green-100' : 'bg-red-100 border-red-300 dark:bg-red-900/30 dark:border-red-700 text-red-900 dark:text-red-100' : 'bg-gray-100 border-gray-300 dark:bg-slate-700 dark:border-slate-600 text-gray-600 dark:text-gray-400'}`,
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: day
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/calendar/page.tsx",
-                                                        lineNumber: 175,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    stats.count > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "text-[10px]",
-                                                        children: [
-                                                            stats.count,
-                                                            "T"
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/calendar/page.tsx",
-                                                        lineNumber: 177,
-                                                        columnNumber: 23
-                                                    }, this)
-                                                ]
-                                            }, day, true, {
+                                                className: `calendar-day rounded-lg border-2 transition-colors font-semibold ${isSelected ? 'bg-blue-600 border-blue-600 text-white dark:bg-blue-700 dark:border-blue-700' : stats.count > 0 ? stats.pnl >= 0 ? 'bg-green-100 border-green-300 dark:bg-green-900/30 dark:border-green-700 text-green-900 dark:text-green-100' : 'bg-red-100 border-red-300 dark:bg-red-900/30 dark:border-red-700 text-red-900 dark:text-red-100' : 'bg-gray-100 border-gray-300 dark:bg-slate-700 dark:border-slate-600 text-gray-600 dark:text-gray-400'}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-full flex items-start justify-between",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "text-sm font-semibold",
+                                                            children: day
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/calendar/page.tsx",
+                                                            lineNumber: 176,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        stats.count > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "text-[11px]",
+                                                            children: [
+                                                                stats.count,
+                                                                "T"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/calendar/page.tsx",
+                                                            lineNumber: 178,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/calendar/page.tsx",
+                                                    lineNumber: 175,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, day, false, {
                                                 fileName: "[project]/src/app/calendar/page.tsx",
                                                 lineNumber: 162,
                                                 columnNumber: 19
@@ -576,7 +584,7 @@ function CalendarPage() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "mt-6 flex flex-wrap gap-4 text-xs",
+                                        className: "mt-6 flex flex-wrap gap-4 calendar-legend",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex items-center gap-2",
@@ -663,7 +671,7 @@ function CalendarPage() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AnimatedCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                className: "bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700 h-fit",
+                                className: "bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700 h-fit",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                         className: "text-lg font-bold text-gray-900 dark:text-white mb-4",

@@ -45,53 +45,17 @@ export default function DashboardHeader() {
         >
           {/* Compact utility icons */}
           <button
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '36px',
-              height: '36px',
-              borderRadius: '8px',
-              border: '1px solid var(--card-border)',
-              backgroundColor: 'transparent',
-              color: 'var(--foreground)',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(139,92,246,0.12)';
-              e.currentTarget.style.boxShadow = '0 6px 18px rgba(139,92,246,0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--card-border)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            className="btn-compact w-9 h-9 rounded-md"
+            style={{ border: '1px solid var(--card-border)', color: 'var(--foreground)' }}
+            aria-label="Notifications"
           >
             <FiBell size={16} />
           </button>
 
           <button
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '36px',
-              height: '36px',
-              borderRadius: '8px',
-              border: '1px solid var(--card-border)',
-              backgroundColor: 'transparent',
-              color: 'var(--foreground)',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(139,92,246,0.12)';
-              e.currentTarget.style.boxShadow = '0 6px 18px rgba(139,92,246,0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--card-border)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            className="btn-compact w-9 h-9 rounded-md"
+            style={{ border: '1px solid var(--card-border)', color: 'var(--foreground)' }}
+            aria-label="Settings"
           >
             <FiSettings size={16} />
           </button>
@@ -100,19 +64,7 @@ export default function DashboardHeader() {
           <button
             onClick={() => setShowAddTrade(true)}
             aria-label="Add trade"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              border: 'none',
-              background: 'linear-gradient(135deg, var(--purple-base), var(--purple-dark))',
-              color: 'white',
-              cursor: 'pointer',
-              boxShadow: '0 6px 18px rgba(139,92,246,0.15)'
-            }}
+            className="btn-compact btn-primary rounded-md w-10 h-10 flex items-center justify-center"
           >
             +
           </button>

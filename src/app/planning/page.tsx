@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import DashboardHeader from '@/components/DashboardHeader';
+import DashboardHeaderV3 from '@/components/DashboardHeaderV3';
 import { useTheme } from '@/context/ThemeContext';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
@@ -15,7 +15,7 @@ interface DailyGoal {
 }
 
 export default function PlanningPage() {
-  const { theme, toggleTheme } = useTheme();
+  // header v3 used across app
   const [mounted, setMounted] = useState(false);
   const [today] = useState(new Date().toISOString().split('T')[0]);
   const [dailyGoal, setDailyGoal] = useState<DailyGoal>({
@@ -63,7 +63,7 @@ export default function PlanningPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
-      <DashboardHeader onThemeToggle={toggleTheme} currentTheme={theme} />
+      <DashboardHeaderV3 />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-8">
@@ -89,7 +89,7 @@ export default function PlanningPage() {
               />
               <button
                 onClick={addGoal}
-                className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors"
+                className="btn-compact bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
               >
                 <FiPlus className="w-5 h-5" />
               </button>
@@ -128,7 +128,7 @@ export default function PlanningPage() {
 
             <button
               onClick={saveGoals}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-colors"
+              className="w-full btn-primary disabled:opacity-50 transition-colors text-center"
             >
               Save Daily Goals
             </button>

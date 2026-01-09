@@ -109,7 +109,7 @@ export function CandleDataImporter({ onImport, pair = 'EUR/USD', timeframe = 'H1
         <div className="flex gap-2">
           <button
             onClick={generateSampleData}
-            className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
+            className="flex-1 btn-primary disabled:opacity-50"
             disabled={loading}
           >
             Generate Sample Data

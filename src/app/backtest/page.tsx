@@ -232,7 +232,7 @@ export default function BacktestPage() {
               whileTap={{ scale: 0.98 }}
               onClick={runBacktest}
               disabled={loading || !selectedStrategy}
-              className="w-full py-3 bg-gradient-to-r from-purple-600 to-purple-500 rounded-lg font-semibold disabled:opacity-50 hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+              className="w-full btn-primary disabled:opacity-50 hover:shadow-lg hover:shadow-purple-500/50 transition-all text-center"
             >
               {loading ? 'Running Backtest...' : 'Run Backtest'}
             </motion.button>

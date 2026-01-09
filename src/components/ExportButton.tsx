@@ -104,7 +104,7 @@ export default function ExportButton({ trades, format }: ExportButtonProps) {
   return (
     <button
       onClick={handleExport}
-      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+      className="flex items-center gap-2 btn-primary px-4 rounded-lg transition-colors"
     >
       <FiDownload className="w-4 h-4" />
       Export {format.toUpperCase()}

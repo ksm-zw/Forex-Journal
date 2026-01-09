@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import DashboardHeader from '@/components/DashboardHeader';
-import { useTheme } from '@/context/ThemeContext';
+import DashboardHeaderV3 from '@/components/DashboardHeaderV3';
 import { Toaster } from 'react-hot-toast';
 import AnimatedCard from '@/components/AnimatedCard';
 
@@ -16,7 +15,7 @@ interface Trade {
 }
 
 export default function CalendarPage() {
-  const { theme, toggleTheme } = useTheme();
+  // Header component v3 used across the app
   const [mounted, setMounted] = useState(false);
   const [trades, setTrades] = useState<Trade[]>([]);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -101,37 +100,37 @@ export default function CalendarPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
-      <DashboardHeader onThemeToggle={toggleTheme} currentTheme={theme} />
+      <DashboardHeaderV3 />
 
       <main className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Trading Calendar</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Trading Calendar</h1>
           <p className="text-gray-600 dark:text-gray-400">View your trades by day</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Calendar */}
-          <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700">
-            <div className="flex items-center justify-between mb-6">
+          <AnimatedCard className="lg:col-span-2 bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white">
                 {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}
               </h2>
               <div className="flex gap-2">
                 <button
                   onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
-                  className="px-3 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors"
+                  className="btn-compact bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors rounded-md"
                 >
                   ← Prev
                 </button>
                 <button
                   onClick={() => setCurrentMonth(new Date())}
-                  className="px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors text-sm font-semibold"
+                  className="btn-compact bg-blue-600 hover:bg-blue-700 text-white transition-colors rounded-md"
                 >
                   Today
                 </button>
                 <button
                   onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
-                  className="px-3 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors"
+                  className="btn-compact bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors rounded-md"
                 >
                   Next →
                 </button>
@@ -141,17 +140,17 @@ export default function CalendarPage() {
             {/* Day Headers */}
             <div className="grid grid-cols-7 gap-2 mb-2">
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                <div key={day} className="text-center font-semibold text-gray-700 dark:text-gray-300 text-xs p-2">
+                <div key={day} className="text-center font-semibold text-gray-700 dark:text-gray-300 text-xs py-1">
                   {day}
                 </div>
               ))}
             </div>
 
             {/* Days */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="calendar-grid">
               {calendarDays.map((day, idx) => {
                 if (day === null) {
-                  return <div key={`empty-${idx}`} className="aspect-square" />;
+                  return <div key={`empty-${idx}`} className="calendar-day" />;
                 }
 
                 const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day).toISOString().split('T')[0];
@@ -162,7 +161,7 @@ export default function CalendarPage() {
                   <button
                     key={day}
                     onClick={() => setSelectedDate(isSelected ? null : date)}
-                    className={`aspect-square p-2 rounded-lg border-2 transition-colors text-xs font-semibold ${
+                    className={`calendar-day rounded-lg border-2 transition-colors font-semibold ${
                       isSelected
                         ? 'bg-blue-600 border-blue-600 text-white dark:bg-blue-700 dark:border-blue-700'
                         : stats.count > 0
@@ -172,19 +171,19 @@ export default function CalendarPage() {
                         : 'bg-gray-100 border-gray-300 dark:bg-slate-700 dark:border-slate-600 text-gray-600 dark:text-gray-400'
                     }`}
                   >
-                    <div>{day}</div>
-                    {stats.count > 0 && (
-                      <div className="text-[10px]">
-                        {stats.count}T
-                      </div>
-                    )}
+                    <div className="w-full flex items-start justify-between">
+                      <div className="text-sm font-semibold">{day}</div>
+                      {stats.count > 0 && (
+                        <div className="text-[11px]">{stats.count}T</div>
+                      )}
+                    </div>
                   </button>
                 );
               })}
             </div>
 
             {/* Legend */}
-            <div className="mt-6 flex flex-wrap gap-4 text-xs">
+            <div className="mt-6 flex flex-wrap gap-4 calendar-legend">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded border-2 border-green-300 dark:border-green-700" />
                 <span className="text-gray-700 dark:text-gray-300">Winning Day</span>
@@ -201,7 +200,7 @@ export default function CalendarPage() {
           </AnimatedCard>
 
           {/* Selected Date Trades */}
-          <AnimatedCard className="bg-white dark:bg-slate-800 p-6 border border-gray-200 dark:border-slate-700 h-fit">
+          <AnimatedCard className="bg-white dark:bg-slate-800 p-4 border border-gray-200 dark:border-slate-700 h-fit">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
               {selectedDate ? new Date(selectedDate + 'T00:00:00').toLocaleDateString() : 'Select a date'}
             </h2>

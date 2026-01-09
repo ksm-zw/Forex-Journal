@@ -41,21 +41,7 @@ export default function IconSidebar() {
           marginBottom: '8px',
         }}
       >
-        <div
-          style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '10px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'linear-gradient(135deg, var(--purple-base) 0%, var(--purple-dark) 100%)',
-            color: 'white',
-            fontWeight: '700',
-            fontSize: '14px',
-            boxShadow: 'var(--shadow-floating)',
-          }}
-        >
+        <div className="w-10 h-10 rounded-md flex items-center justify-center gradient-purple text-white font-bold text-sm" style={{ boxShadow: 'var(--shadow-floating)' }}>
           YM
         </div>
       </div>
@@ -92,28 +78,13 @@ export default function IconSidebar() {
                 position: 'relative',
                 overflow: 'visible',
               }}
-              onMouseEnter={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.borderColor = 'rgba(139,92,246,0.12)';
-                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(139,92,246,0.06)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.borderColor = 'var(--card-border)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }
-              }}
             >
               {isActive && (
-                <span style={{
-                  position: 'absolute',
-                  left: '-8px',
-                  width: '4px',
-                  height: '24px',
-                  borderRadius: '4px',
-                  background: 'linear-gradient(180deg, var(--purple-base), var(--purple-dark))',
-                }} aria-hidden />
+                <span
+                  aria-hidden
+                  className="absolute -left-2 w-1 h-6 rounded bg-gradient-to-b"
+                  style={{ background: 'linear-gradient(180deg, var(--purple-base), var(--purple-dark))' }}
+                />
               )}
               <ActiveIcon style={{ width: '18px', height: '18px' }} />
             </Link>

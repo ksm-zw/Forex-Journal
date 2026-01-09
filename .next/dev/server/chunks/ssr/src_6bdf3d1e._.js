@@ -701,15 +701,23 @@ function YearlyHeatmap({ trades, onSelectRange }) {
     const max = Math.max(...days.map((d)=>Math.abs(d.pnl)), 1);
     const [start, setStart] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [end, setEnd] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Avoid calling parent's setter on initial mount to prevent update loops
+    const initialRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(true);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (onSelectRange) onSelectRange({
+        if (!onSelectRange) return;
+        if (initialRef.current) {
+            initialRef.current = false;
+            return;
+        }
+        onSelectRange({
             start,
             end
         });
+    // intentionally exclude onSelectRange from deps to rely on stable setter passed from parent
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         start,
-        end,
-        onSelectRange
+        end
     ]);
     const [monthZoom, setMonthZoom] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     function handleClick(day) {
@@ -771,7 +779,7 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                         children: "Yearly P&L Heatmap"
                     }, void 0, false, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                        lineNumber: 106,
+                        lineNumber: 115,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -787,13 +795,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                                 children: start
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 118,
                                                 columnNumber: 34
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                        lineNumber: 109,
+                                        lineNumber: 118,
                                         columnNumber: 23
                                     }, this),
                                     " ",
@@ -804,13 +812,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                                 children: end
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 118,
                                                 columnNumber: 85
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                        lineNumber: 109,
+                                        lineNumber: 118,
                                         columnNumber: 75
                                     }, this),
                                     (start || end) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -826,13 +834,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                         children: "Clear"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                        lineNumber: 110,
+                                        lineNumber: 119,
                                         columnNumber: 32
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                lineNumber: 108,
+                                lineNumber: 117,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -844,19 +852,19 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                                 children: monthZoom ? 'Month Zoom: ON' : 'Month Zoom: OFF'
                             }, void 0, false, {
                                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                                lineNumber: 112,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                        lineNumber: 107,
+                        lineNumber: 116,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                lineNumber: 105,
+                lineNumber: 114,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -901,13 +909,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                         children: showLabel ? d.pnl > 0 ? `+$${Math.round(d.pnl)}` : `-$${Math.abs(Math.round(d.pnl))}` : ''
                     }, d.day, false, {
                         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                        lineNumber: 127,
+                        lineNumber: 136,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                lineNumber: 118,
+                lineNumber: 127,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -915,13 +923,13 @@ function YearlyHeatmap({ trades, onSelectRange }) {
                 children: "Green = Profit, Pink = Loss. Click a day to set start, click another to set end. Toggle Month Zoom to select whole month on click. Clear to reset selection."
             }, void 0, false, {
                 fileName: "[project]/src/components/YearlyHeatmap.tsx",
-                lineNumber: 146,
+                lineNumber: 155,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/YearlyHeatmap.tsx",
-        lineNumber: 104,
+        lineNumber: 113,
         columnNumber: 5
     }, this);
 }
@@ -1301,7 +1309,7 @@ function AnalyticsPage() {
                                 className: "p-4",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$YearlyHeatmap$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     trades: trades,
-                                    onSelectRange: (r)=>setDateRange(r)
+                                    onSelectRange: setDateRange
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/analytics/page.tsx",
                                     lineNumber: 81,

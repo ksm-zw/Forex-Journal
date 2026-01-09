@@ -190,21 +190,8 @@ export default function DashboardPage() {
         <button
           onClick={fetchTrades}
           disabled={isLoading}
-          style={{
-            background: 'linear-gradient(135deg, var(--purple-base) 0%, var(--purple-dark) 100%)',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '8px',
-            border: 'none',
-            cursor: isLoading ? 'not-allowed' : 'pointer',
-            fontWeight: '600',
-            fontSize: '14px',
-            transition: 'all 0.3s ease',
-            opacity: isLoading ? 0.6 : 1,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-          }}
+          className="btn-primary"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', opacity: isLoading ? 0.6 : 1 }}
         >
           <FiRefreshCw size={16} style={{ animation: isLoading ? 'spin 1s linear infinite' : 'none' }} />
           {isLoading ? 'Loading...' : 'Refresh Data'}

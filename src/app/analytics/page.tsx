@@ -78,7 +78,7 @@ export default function AnalyticsPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
           <AnimatedCard className="p-4">
-            <YearlyHeatmap trades={trades} onSelectRange={(r) => setDateRange(r)} />
+            <YearlyHeatmap trades={trades} onSelectRange={setDateRange} />
           </AnimatedCard>
           <AnimatedCard className="p-4">
             <MonthlyPerformanceTable trades={trades} />
