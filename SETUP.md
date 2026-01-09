@@ -59,7 +59,7 @@ If you want to persist data locally, configure a SQLite database.
 
 ### Step 1: Set Environment Variables
 
-Create a `.env.local` file in the repo root:
+Create a `.env.local` file in the repo root (or use the helper scripts which will create one for you):
 
 ```bash
 # .env.local
@@ -67,6 +67,7 @@ DATABASE_URL="file:./prisma/dev.db"
 OPENAI_API_KEY="sk-your-api-key-here"  # Optional, for AI analysis
 ```
 
+Note: The Prisma CLI reads environment variables from `.env` (not `.env.local`). If you run `npx prisma db push` directly, either create a `.env` file (you can copy from `.env.local.example`) or run the provided helpers (`./scripts/local-setup.sh` or PowerShell helper) which will create `.env` automatically for you.
 ### Step 2: Initialize Database
 
 ```bash

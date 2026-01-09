@@ -19,6 +19,15 @@ ensure_env() {
   else
     echo ".env.local already exists — leaving it unchanged (backup .env.local.bak to recreate)"
   fi
+
+  # Prisma CLI reads from .env; create .env from example if missing
+  if [ ! -f .env ]; then
+    echo "Creating .env from .env.local.example for Prisma CLI compatibility..."
+    cp .env.local.example .env
+    echo "Created .env (gitignored) — you can edit it if needed."
+  else
+    echo ".env already exists — leaving it unchanged"
+  fi
 }
 
 bootstrap() {

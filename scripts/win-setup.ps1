@@ -22,6 +22,15 @@ function Set-EnvVars {
   }
   Write-Host "DATABASE_URL=$ENV:DATABASE_URL" -ForegroundColor Green
   Write-Host "OPENAI_API_KEY=(set)" -ForegroundColor Green
+
+  # Ensure a .env file exists for Prisma CLI (reads .env)
+  if (-not (Test-Path -Path ".env")) {
+    Write-Host "Creating .env from .env.local.example for Prisma CLI compatibility..." -ForegroundColor Cyan
+    Get-Content .env.local.example | Set-Content .env
+    Write-Host ".env created (gitignored). Edit it if you want to persist different values." -ForegroundColor Green
+  } else {
+    Write-Host ".env already exists — leaving it unchanged" -ForegroundColor Yellow
+  }
 }
 
 function Bootstrap-DB {
