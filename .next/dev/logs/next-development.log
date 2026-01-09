@@ -1,8 +1,2 @@
-[00:00:03.045] Server  LOG     ✓ Ready in 2.5s
-[00:00:06.623] Server  LOG     ○ Compiling / ...
-[00:00:11.024] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
-Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:00:13.459] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:35.566] Server  WARN    ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
-Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:03:41.805] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:24.852] Server  LOG     ✓ Ready in 22.7s
+[00:00:27.868] Server  LOG     ○ Compiling /api/strategies ...
